@@ -1,2 +1,4 @@
 # simple-ecommerce
-Ecommerce sederhana menggungkan Codeigniter 4
+Sebuah ecommerce sederhana
+
+Menggunanakan Framework Codeigniter 4
