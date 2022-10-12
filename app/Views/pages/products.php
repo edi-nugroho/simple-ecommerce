@@ -10,7 +10,7 @@
 						<?php if($p->is_discount == 1) : ?>
 							<!-- Discount-->
 							<div class="discount" style="background-color: black; color: white; position: absolute;">
-								<h6 style="font-weight: 600; margin: 0; padding: 5px 10px;">20%</h6>
+								<h6 style="font-weight: 800; margin: 0; padding: 5px 10px;">20%</h6>
 							</div>
 						<?php endif; ?>
 						<!-- Image Sementara -->

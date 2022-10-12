@@ -56,9 +56,4 @@ class Product extends Model
     {
         return $this->where(['id' => $id])->first();
     }
-
-    public function getProductByKeyword($keyword)
-    {
-
-    }
 }

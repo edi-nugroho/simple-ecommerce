@@ -23,6 +23,15 @@ class Home extends BaseController
         return view('pages/home', $data);
     }
 
+    public function about()
+    {
+        $data = [
+            'title' => 'About - Eazy Store'
+        ];
+
+        return view('pages/about', $data);
+    }
+
     public function allProducts()
     {
         $data = [

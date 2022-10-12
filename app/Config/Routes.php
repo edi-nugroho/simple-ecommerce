@@ -38,6 +38,7 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('/allproducts', 'Home::allProducts');
 $routes->get('/product/(:num)', 'Home::product/$1');
+$routes->get('/about', 'Home::about');
 
 /*
  * --------------------------------------------------------------------

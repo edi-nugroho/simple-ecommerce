@@ -101,6 +101,21 @@ body > .navbar {
 	font-weight: 800;
 }
 
+/* Page About Styling */
+.about {
+	padding: 40px 0;
+}
+
+.about h2 {
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 4rem;
+}
+
+.about p:nth-child(4) {
+	margin-bottom: 4rem;
+}
+
 /* Page All Products  */
 .all-products {
 	padding: 40px 0;
