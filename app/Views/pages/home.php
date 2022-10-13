@@ -42,7 +42,7 @@
 						<div class="product-detail p-4" style="width: 100%; box-sizing: border-box;">
 							<h6 style="font-weight: 700; color: black;"><a href="/product/<?= $p->id; ?>" class="text-decoration-none" style="color: black;"><?= $p->name; ?></a></h6>
 
-							<p style="font-weight: 700; color: rgb(126, 126, 126); margin-bottom: 5px;">Tshirt</p>
+							<p style="font-weight: 700; color: rgb(126, 126, 126); margin-bottom: 5px;"><?= $p->category_name; ?></p>
 
 							<div class="price-cart d-flex justify-content-between align-items-center">
 								<div class="price">

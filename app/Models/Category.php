@@ -4,17 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Product extends Model
+class Category extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'products';
+    protected $table            = 'category';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['category_id', 'name', 'price', 'is_discount'];
+    protected $allowedFields    = ['category_name'];
 
     // Dates
     protected $useTimestamps = false;
@@ -39,24 +39,4 @@ class Product extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    public function getProduct()
-    {
-        return $this->join('category', 'category.id = products.category_id')
-                    ->get()
-                    ->getResult();
-    }
-
-    public function getProductLimit()
-    {
-        return $this->join('category', 'category.id = products.category_id')
-                    ->limit(3)
-                    ->get()
-                    ->getResult();
-    }
-
-    public function getProductById($id)
-    {
-        return $this->where(['id' => $id])->first();
-    }
 }

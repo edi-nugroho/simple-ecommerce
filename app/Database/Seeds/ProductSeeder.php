@@ -12,8 +12,9 @@ class ProductSeeder extends Seeder
         $product = new Product;
         $faker = \Faker\Factory::create();
 
-        for ($i = 0; $i < 5; $i++) { 
+        for ($i = 0; $i < 10; $i++) { 
             $product->save([
+                'category_id' => rand(1, 2),
                 'name' => $faker->name,
                 'price' => 500000,
                 'is_discount' => 1

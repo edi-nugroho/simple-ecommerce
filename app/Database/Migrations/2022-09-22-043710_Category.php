@@ -13,7 +13,7 @@ class Category extends Migration
                 'type' => 'INT',
                 'auto_increment' => true
             ],
-            'name' => [
+            'category_name' => [
                 'type' => 'VARCHAR',
                 'constraint' => '150'
             ]
