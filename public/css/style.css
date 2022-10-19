@@ -201,11 +201,158 @@ body > .navbar {
 
 .qty-input {
 	width: 50px;
-	border-radius:5px;
-	border: 1px solid rgb(227, 227, 227);
+	border: 1px solid #dcdcdc;
+	padding: 3px;
 	text-align: center;
 }
 
+/* Cart Styling */
+.cart {
+	padding: 40px 0;
+}
+
+.cart h2 {
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+
+.cart-detail {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.cart-detail .img-product {
+	width: 200px;
+	height: 250px;
+	background-color: crimson;
+}
+
+.cart-img__title {
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+}
+
+.title_product > * {
+	margin-left: 20px;
+	font-weight: 700;
+	text-decoration: none;
+	color: black;
+}
+
+.title_product > .remove__button {
+	padding: 10px 20px;
+	border: 2px solid black;
+	background-color: black;
+	color: white;
+	transition: 0.7s;
+}
+
+.title_product > .remove__button:hover {
+	background-color: white;
+	color: black;
+}
+
+.cart-qty__price {
+	height: 100px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	flex-grow: 1;
+}
+
+.qty__detail {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.qty__detail > * {
+	font-weight: 700;
+}
+
+.qty__detail > .qty__cart {
+	border: 1px solid #dcdcdc;
+	padding: 3px;
+	text-align: center;
+	max-width: 70px;
+}
+
+.price__detail {
+	text-align: center;
+}
+
+.price__detail p {
+	font-size: 14px;
+	font-weight: 800;
+}
+
+.checkout-button {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.checkout-button > a{
+	padding: 10px 20px;
+	background-color: black;
+	border: 2px solid black;
+	color: white;
+	font-weight: 700;
+	text-decoration: none;
+	transition: 0.7s;
+}
+
+.checkout-button > a:hover {
+	color: black;
+	background-color: white;
+}
+
+/* Login Page Styling */
+.login-page {
+	margin: 10rem 0;
+}
+
+.login-page h2 {
+	margin-bottom: 30px;
+	font-weight: 700;
+}
+
+.login-card {
+	display: flex;
+	flex-direction: column;
+	font-size: 14px;
+}
+
+.login-card label {
+	font-weight: 700;
+}
+
+.login-card input {
+	margin-bottom: 20px;
+	border: 1px solid #d3d3d3;
+	padding: 5px;
+}
+
+.login-card > button {
+	margin-bottom: 15px;
+	border: 2px solid black;
+	background-color: black;
+	color: white;
+	padding: 10px 0;
+	font-weight: 700;
+}
+
+.login-card a {
+	font-size: 12px;
+	text-decoration: none;
+	font-weight: 600;
+	color: black;
+}
+
+/* Footer Styling */
 footer {
 	width: 100%;
 	height: 400px;

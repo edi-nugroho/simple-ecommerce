@@ -30,7 +30,7 @@
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </form>
-      <a href="" class="mx-3 text-black text-decoration-none position-relative">
+      <a href="/cart" class="mx-3 text-black text-decoration-none position-relative">
         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"style="font-size: 10px;">
           10
           <span class="visually-hidden">unread messages</span>
