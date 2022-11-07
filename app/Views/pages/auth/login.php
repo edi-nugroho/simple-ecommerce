@@ -5,16 +5,50 @@
         <div class="container col-6">
             <h2 class="login-title">Login</h2>
             <div class="login-card">
-                <label for="">Email</label>
-                <input type="text" class="login_email">
+                <?= view('Myth\Auth\Views\_message_block') ?>
+                <form action="<?= url_to('login') ?>" method="post">
+                    <?= csrf_field() ?>
 
-                <label for="">Password</label>
-                <input type="password">
+                    <?php if ($config->validFields === ['email']): ?>
+                        <div class="form-group">
+                            <label for="login">Email</label>
+                            <input type="email" class="login_email form-control <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" name="login" placeholder="<?=lang('Auth.email')?>">
+                            <div class="invalid-feedback">
+                                <?= session('errors.login') ?>
+                            </div>
+                        </div>
+                    <?php else: ?>
+						<div class="form-group">
+							<label for="login"><?=lang('Auth.emailOrUsername')?></label>
+							<input type="text" class="login_email form-control <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>"
+								   name="login" placeholder="<?=lang('Auth.emailOrUsername')?>">
+							<div class="invalid-feedback">
+								<?= session('errors.login') ?>
+							</div>
+						</div>
+                    <?php endif; ?>
 
-                <button type="submit">Sign In</button>
+                    <div class="form-group">
+                        <label for="password"><?=lang('Auth.password')?></label>
+                        <input type="password" name="password" class="form-control  <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="<?=lang('Auth.password')?>">
+                        <div class="invalid-feedback">
+                            <?= session('errors.password') ?>
+                        </div>
+                    </div>
 
-                <a href="/register">Create Account</a>
-                <a href="sdsd">Forgot Password</a>
+                    <?php if ($config->allowRemembering): ?>
+						<div class="form-check">
+							<label class="form-check-label">
+								<input type="checkbox" name="remember" class="form-check-input" <?php if (old('remember')) : ?> checked <?php endif ?>>
+								<?=lang('Auth.rememberMe')?>
+							</label>
+						</div>
+                    <?php endif; ?>
+                    
+                    <button type="submit">Sign In</button>
+                    <a href="/register">Create Account</a>
+                    <a href="<?= url_to('forgot') ?>">Forgot Password</a>
+                </form>
             </div>
         </div>
     </div>

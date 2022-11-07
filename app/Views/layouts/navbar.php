@@ -24,8 +24,8 @@
           </ul>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="search-input me-2" type="text" placeholder="Search">
+      <form action="/search" class="d-flex" role="search" method="GET">
+        <input class="search-input me-2" name="q" type="text" placeholder="Search">
         <button class="btn" type="submit">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
@@ -37,9 +37,31 @@
         </span>
         <i class="fa-solid fa-cart-shopping"></i>
       </a>
-      <a href="" class="mx-3 text-black">
-        <i class="fa-solid fa-user"></i>
-      </a>
+
+      <?php if(!logged_in()) : ?>
+        <a href="/login" class="mx-3 p-2 bg-black text-white text-decoration-none" style="font-size: 12px;font-weight: 700;">
+          Masuk
+        </a>        
+        <a href="/register" class="mx-3 text-black text-decoration-none" style="font-size: 12px;font-weight: 700;">
+          Daftar
+        </a>        
+      <?php endif; ?>
+      
+      <?php if(logged_in()) : ?>
+        <a href="/myprofile" class="mx-3 text-black">
+          <i class="fa-solid fa-user"></i>
+        </a>
+
+        <?php if(in_groups('admin') || in_groups('staff')) : ?> 
+          <a href="/admin" class="mx-3 p-2 bg-black text-white text-decoration-none" style="font-size: 12px;">
+            Admin Panel
+          </a>
+        <?php endif; ?>
+
+        <a href="<?= base_url('logout'); ?>" class="mx-3 text-black text-decoration-none" style="font-size: 12px;">
+          Logout
+        </a>
+      <?php endif; ?>
     </div>
   </div>
 </nav>

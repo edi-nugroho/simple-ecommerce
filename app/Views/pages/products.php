@@ -6,7 +6,7 @@
 			<h3 class="pb-4">All products</h3>
 			<div class="d-flex justify-content-between" style="flex-wrap: wrap;">
 				<?php foreach($products as $p) : ?>
-					<div class="product-card mb-5" style="width: 250px; background-color: white; padding: 0;">
+					<div class="product-card shadow-sm mb-5" style="width: 250px; background-color: white; padding: 0;">
 						<?php if($p->is_discount == 1) : ?>
 							<!-- Discount-->
 							<div class="discount" style="background-color: black; color: white; position: absolute;">

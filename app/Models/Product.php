@@ -39,12 +39,18 @@ class Product extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    public function getProduct()
+    
+    public function getProducts()
     {
         return $this->join('category', 'category.id = products.category_id')
                     ->get()
                     ->getResult();
+    }
+
+    public function getProduct($id)
+    {
+        return $this->join('category', 'category.id = products.category_id')
+                    ->where(['products.id' => $id])->get()->getRowArray();
     }
 
     public function getProductLimit()
@@ -55,8 +61,13 @@ class Product extends Model
                     ->getResult();
     }
 
-    public function getProductById($id)
+    public function getProductByKeyword($keyword)
     {
-        return $this->where(['id' => $id])->first();
+        return $this->join('category', 'category.id = products.category_id')
+                    ->like('name', $keyword)
+                    ->orLike('category_name', $keyword)
+                    ->get()
+                    ->getResult();
     }
+
 }

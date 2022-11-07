@@ -40,8 +40,13 @@ $routes->get('/allproducts', 'Pages::allProducts');
 $routes->get('/product/(:num)', 'Pages::product/$1');
 $routes->get('/about', 'Pages::about');
 $routes->get('/cart', 'Pages::cart');
+$routes->get('/search', 'Pages::search');
 $routes->get('/login', 'Pages::login');
 $routes->get('/register', 'Pages::register');
+
+// Admin Routes
+$routes->get('/admin', 'Admin::index', ['filter' => 'role:admin,staff']);
+$routes->get('/admin/index', 'Admin::index', ['filter' => 'role:admin,staff']);
 
 /*
  * --------------------------------------------------------------------

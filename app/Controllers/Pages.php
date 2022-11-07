@@ -36,7 +36,7 @@ class Pages extends BaseController
     {
         $data = [
             'title' => 'All products - Eazy Store',
-            'products' => $this->productModel->getProduct()
+            'products' => $this->productModel->getProducts()
         ];
 
         return view('pages/products', $data);
@@ -44,7 +44,8 @@ class Pages extends BaseController
 
     public function product($id)
     {
-        $product = $this->productModel->getProductById($id);
+        $product = $this->productModel->getProduct($id);
+
         $title =  $product['name'] . " - Eazy Store";
 
         $data = [
@@ -71,7 +72,8 @@ class Pages extends BaseController
         $title = "Login Page";
 
         $data = [
-            'title' => $title
+            'title' => $title,
+            'config' => config('Auth'),
         ];
 
         return view('pages/auth/login', $data);
@@ -86,5 +88,26 @@ class Pages extends BaseController
         ];
 
         return view('pages/auth/register', $data);
+    }
+
+    public function search()
+    {
+        $keyword = $this->request->getvar('q');
+        
+        $title = "Pencarian - ";
+
+        if($keyword == NULL)
+        {
+            $title .= "All Products";
+        }else{
+            $title .= $keyword;
+        }
+
+        $data = [
+            'title' => $title,
+            'products' => $this->productModel->getProductByKeyword($keyword)
+        ];
+
+        return view('pages/products', $data);
     }
 }

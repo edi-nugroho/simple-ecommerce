@@ -320,7 +320,7 @@ body > .navbar {
 	font-weight: 700;
 }
 
-.login-card {
+.login-card form{
 	display: flex;
 	flex-direction: column;
 	font-size: 14px;
@@ -334,9 +334,11 @@ body > .navbar {
 	margin-bottom: 20px;
 	border: 1px solid #d3d3d3;
 	padding: 5px;
+	font-size: 14px;
+	border-radius: 0;
 }
 
-.login-card > button {
+.login-card button {
 	margin-bottom: 15px;
 	border: 2px solid black;
 	background-color: black;
