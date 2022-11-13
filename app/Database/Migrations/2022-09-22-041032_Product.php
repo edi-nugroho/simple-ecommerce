@@ -27,12 +27,16 @@ class Product extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 255
             ],
+            'description' => [
+                'type' => 'TEXT'
+            ],
             'price' => [
                 'type' => 'INT'
             ],
             'is_discount' => [
                 'type' => 'INT',
-                'constraint' => '1'
+                'constraint' => '1',
+                'null' => TRUE
             ],
             'created_at datetime default current_timestamp',
             'updated_at datetime default current_timestamp on update current_timestamp'

@@ -6,7 +6,10 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="nav navbar-nav ml-auto">
+            <ul class="nav navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url(); ?>">Web</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('logout'); ?>">Logout</a>
                 </li>

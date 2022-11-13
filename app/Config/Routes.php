@@ -37,7 +37,7 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Pages::index');
 $routes->get('/allproducts', 'Pages::allProducts');
-$routes->get('/product/(:num)', 'Pages::product/$1');
+$routes->get('/product/(:any)', 'Pages::product/$1');
 $routes->get('/about', 'Pages::about');
 $routes->get('/cart', 'Pages::cart');
 $routes->get('/search', 'Pages::search');
@@ -47,6 +47,21 @@ $routes->get('/register', 'Pages::register');
 // Admin Routes
 $routes->get('/admin', 'Admin::index', ['filter' => 'role:admin,staff']);
 $routes->get('/admin/index', 'Admin::index', ['filter' => 'role:admin,staff']);
+
+// Products Routes
+$routes->get('/products', 'products::index', ['filter' => 'role:admin,staff']);
+$routes->get('/products/index', 'products::index', ['filter' => 'role:admin,staff']);
+$routes->get('/products/insert', 'products::insert', ['filter' => 'role:admin,staff']);
+$routes->post('/products/save', 'products::save', ['filter' => 'role:admin,staff']);
+$routes->get('/products/edit/(:any)', 'products::edit/$1', ['filter' => 'role:admin,staff']);
+$routes->post('/products/update/(:num)', 'products::update/$1', ['filter' => 'role:admin,staff']);
+$routes->delete('/products/delete/(:num)', 'products::delete/$1', ['filter' => 'role:admin,staff']);
+
+// Categories Routes
+$routes->get('/categories', 'categories::index', ['filter' => 'role:admin,staff']);
+$routes->get('/categories/index', 'categories::index', ['filter' => 'role:admin,staff']);
+$routes->post('/categories/insert', 'categories::insert', ['filter' => 'role:admin,staff']);
+$routes->delete('/categories/delete/(:num)', 'categories::delete/$1', ['filter' => 'role:admin,staff']);
 
 /*
  * --------------------------------------------------------------------

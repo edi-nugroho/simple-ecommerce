@@ -2,12 +2,17 @@
     <div class="sidebar-header">
         <div class="header-logo"></div>
         <div class="header-title">
-            <h5>Edie</h5>
-            <p>Super Admin</p>
+            <h5><?= user()->username; ?></h5>
+            <p><?= $user->description; ?></p>
         </div>
     </div>
 
     <ul class="list-unstyled components">
+
+        <p>Dashboard</p>
+        <li>
+            <a href="/admin">Dashboard</a>
+        </li>
 
         <?php if(in_groups('admin')) : ?>
             <p>User Management</p>
@@ -19,12 +24,20 @@
 
         <p>Products Management</p>
         <li>
-            <a href="#">Portfolio</a>
+            <a href="/products">Products</a>
+        </li>
+        <li>
+            <a href="">Stock</a>
         </li>
 
-        <p>Category Management</p>
+        <p>Categories Management</p>
         <li>
-            <a href="#">Contact</a>
+            <a href="/categories" class="">Categories</a>
+        </li>
+
+        <p>Order Management</p>
+        <li>
+            <a href="">Order list</a>
         </li>
 
         <hr>

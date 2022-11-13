@@ -1,5 +1,8 @@
 <?= $this->extend('layouts/admin/template'); ?>
 
 <?= $this->section('content'); ?>
-    <h1>Selamat Datang Admin!</h1>
+    <div class="content">
+        <h1>Selamat Datang Admin!</h1>
+        
+    </div>
 <?= $this->endSection(); ?>

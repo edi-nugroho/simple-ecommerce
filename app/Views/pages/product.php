@@ -15,13 +15,13 @@
 				<h2 class="pb-2"><?= $product['name']; ?></h2>
 
 				<div class="detail-price d-flex pb-2">
-					<p style="padding-right: 15px;">Rp. 50.000</p>
+					<p style="padding-right: 15px;">Rp. <?= number_format($product['price'], 0, ',','.'); ?></p>
 					<p><strike>Rp. 150.000</strike></p>
 				</div>
 
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta sollicitudin risus, ut venenatis ex molestie at. Vestibulum eget ligula in quam tempor varius quis eu ex. Morbi faucibus ultricies sodales. Vestibulum sodales leo et libero gravida, et tempus mauris porttitor.</p>
-
-				<p>Quisque gravida urna dolor, ut euismod magna mattis non. Sed nunc nisl, porttitor non magna sit amet, pellentesque malesuada orci. In porttitor velit vitae maximus imperdiet.</p>
+				<div class="mb-4">
+					<?= $product['description']; ?>
+				</div>
 
 				<div class="detail-size pb-4">
 					<label for="">Size : </label>

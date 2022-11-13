@@ -42,9 +42,9 @@ class Pages extends BaseController
         return view('pages/products', $data);
     }
 
-    public function product($id)
+    public function product($slug)
     {
-        $product = $this->productModel->getProduct($id);
+        $product = $this->productModel->getProduct($slug);
 
         $title =  $product['name'] . " - Eazy Store";
 

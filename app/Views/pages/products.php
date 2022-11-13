@@ -14,17 +14,17 @@
 							</div>
 						<?php endif; ?>
 						<!-- Image Sementara -->
-						<a href="/product/<?= $p->id; ?>" class="text-decoration-none" style="color: black;"><div class="bang" style="background-color: crimson; width: 100%; height: 300px;"></div></a>
+						<a href="/product/<?= $p->slug; ?>" class="text-decoration-none" style="color: black;"><div class="bang" style="background-color: crimson; width: 100%; height: 300px;"></div></a>
 						<!-- Detail Products -->
 						<div class="product-detail p-4" style="width: 100%; box-sizing: border-box;">
-							<h6 style="font-weight: 700; color: black;"><a href="/product/<?= $p->id; ?>" class="text-decoration-none" style="color: black;"><?= $p->name; ?></a></h6>
+							<h6 style="font-weight: 700; color: black;"><a href="/product/<?= $p->slug; ?>" class="text-decoration-none" style="color: black;"><?= $p->name; ?></a></h6>
 
 							<p style="font-weight: 700; color: rgb(126, 126, 126); margin-bottom: 5px;"><?= $p->category_name; ?></p>
 
 							<div class="price-cart d-flex justify-content-between align-items-center">
 								<div class="price">
 									<p style="font-size: 12px; font-weight: 700; margin-bottom: 5px;"><strike>Rp. 150.000</strike></p>
-									<p style="font-size: 12px; font-weight: 700; margin: 0;">Rp. <?= $p->price; ?></p>
+									<p style="font-size: 12px; font-weight: 700; margin: 0;">Rp. <?= number_format($p->price, 0, ',','.'); ?></p>
 								</div>
 							</div>
 						</div>
