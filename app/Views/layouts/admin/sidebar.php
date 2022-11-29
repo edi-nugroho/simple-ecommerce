@@ -43,7 +43,7 @@
         <hr>
 
         <li>
-            <a href="">Logout</a>
+            <a href="<?= base_url('logout'); ?>">Logout</a>
         </li>
 
     <!-- <li class="active">

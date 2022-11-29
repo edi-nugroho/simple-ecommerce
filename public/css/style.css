@@ -130,7 +130,7 @@ body > .navbar {
 	padding: 50px 0;
 }
 
-.product > .container {
+.product > .container > form {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -151,7 +151,7 @@ body > .navbar {
 }
 
 .detail-price {
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: 600;
 }
 
@@ -159,32 +159,20 @@ body > .navbar {
 	font-size: 14px;
 } 
 
-.detail-button > a {
+.detail-button > button {
 	display: inline-block;
 	padding: 10px 40px;
 	text-decoration: none;
 	border: 3px solid black;
 	color: black;
 	font-weight: 600;
-}
-
-.detail-button > a:nth-child(1) {
 	color: white;
 	transition: 1s;
 }
 
-.detail-button > a:nth-child(1):hover {
+.detail-button > button:hover {
 	background-color: white;
 	color: black;
-}
-
-.detail-button > a:nth-child(2) {
-	transition: 0.5s;
-}
-
-.detail-button > a:nth-child(2):hover {
-	background-color: black;
-	color: white;
 }
 
 .detail-size > * {
@@ -221,6 +209,7 @@ body > .navbar {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	margin-bottom: 20px;
 }
 
 .cart-detail .img-product {
@@ -242,7 +231,8 @@ body > .navbar {
 	color: black;
 }
 
-.title_product > .remove__button {
+.title_product .remove__button {
+	font-weight: 700;
 	padding: 10px 20px;
 	border: 2px solid black;
 	background-color: black;
@@ -250,7 +240,7 @@ body > .navbar {
 	transition: 0.7s;
 }
 
-.title_product > .remove__button:hover {
+.title_product .remove__button:hover {
 	background-color: white;
 	color: black;
 }
@@ -290,12 +280,12 @@ body > .navbar {
 	font-weight: 800;
 }
 
-.checkout-button {
+.bottom-cart-button {
 	display: flex;
 	justify-content: flex-end;
 }
 
-.checkout-button > a{
+.bottom-cart-button > a {
 	padding: 10px 20px;
 	background-color: black;
 	border: 2px solid black;
@@ -305,7 +295,7 @@ body > .navbar {
 	transition: 0.7s;
 }
 
-.checkout-button > a:hover {
+.bottom-cart-button > a:hover {
 	color: black;
 	background-color: white;
 }
@@ -434,4 +424,8 @@ footer > p {
 .primary {
 	background-color: black;
 	color: white;
+}
+
+.w-85 {
+	width: 85%;
 }

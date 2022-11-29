@@ -1,8 +1,14 @@
 <?= $this->extend('layouts/template'); ?>
 
 <?= $this->section('content'); ?>
-	<div class="product bg-light">
-		<div class="container">
+<div class="product bg-light">
+	<div class="container">
+		<form action="/cart/insert" method="POST">
+			<div class="d-none">
+				<input type="hidden" name="user_id" value="<?= user_id(); ?>">
+				<input type="hidden" name="product_id" value="<?= $product['p_id']; ?>">
+				<input type="hidden" name="price" value="<?= $product['price']; ?>">
+			</div>
 			<div class="product-image">
 				<div class="image">
 					
@@ -15,8 +21,10 @@
 				<h2 class="pb-2"><?= $product['name']; ?></h2>
 
 				<div class="detail-price d-flex pb-2">
-					<p style="padding-right: 15px;">Rp. <?= number_format($product['price'], 0, ',','.'); ?></p>
-					<p><strike>Rp. 150.000</strike></p>
+					<p style="padding-right: 15px;">Rp. <?= rupiah($product['price']); ?></p>
+					<?php if($product['is_discount'] == 1) : ?>
+						<p><strike>Rp. 150.000</strike></p>
+					<?php endif; ?>
 				</div>
 
 				<div class="mb-4">
@@ -38,14 +46,14 @@
 
 				<div class="detail-qty pb-3">
 					<label>Qty : </label>
-					<input type="number" name="" class="qty-input" min="1">
+					<input type="number" name="qty" class="qty-input" min="1" value="1">
 				</div>
 
 				<div class="detail-button">
-					<a href="" class="primary">Add to cart</a>
-					<a href="">Buy now</a>
+					<button type="submit" class="primary">Add to cart</button>
 				</div>
 			</div>
+		</form>
 		</div>
 	</div>
 <?= $this->endSection(); ?>

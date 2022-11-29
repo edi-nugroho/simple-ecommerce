@@ -39,10 +39,19 @@ $routes->get('/', 'Pages::index');
 $routes->get('/allproducts', 'Pages::allProducts');
 $routes->get('/product/(:any)', 'Pages::product/$1');
 $routes->get('/about', 'Pages::about');
-$routes->get('/cart', 'Pages::cart');
 $routes->get('/search', 'Pages::search');
-$routes->get('/login', 'Pages::login');
-$routes->get('/register', 'Pages::register');
+
+// Cart
+$routes->get('/cart', 'Cart::index/$1');
+$routes->post('/cart/insert', 'Cart::insert', ['filter' => 'role:admin,staff,user']);
+$routes->post('/cart/update/(:num)', 'Cart::update/$1', ['filter' => 'role:admin,staff,user']);
+$routes->get('/cart/delete/(:num)', 'Cart::delete/$1', ['filter' => 'role:admin,staff,user']);
+$routes->post('/cart/checkout', 'Cart::checkout', ['filter' => 'role:admin,staff,user']);
+$routes->get('/checkout', 'Cart::checkout', ['filter' => 'role:admin,staff,user']);
+
+// Auth
+$routes->get('/login', 'Auth::login');
+$routes->get('/register', 'Auth::register');
 
 // Admin Routes
 $routes->get('/admin', 'Admin::index', ['filter' => 'role:admin,staff']);
