@@ -48,14 +48,21 @@ class Products extends BaseController {
         $slug = url_title($this->request->getVar('name'), '-', 'true');
         $price = $this->request->getVar('price');
         $description = $this->request->getVar('description');
-        $is_discount = $this->request->getVar('is_discount');
+        $discount = $this->request->getVar('discount');
+
+        // Remove '%' From Discount
+        $discount = trim($discount, "%");
+        $discount = intval($discount);
+
+        // Discount
+        $price = discount($price, $discount);
 
         $this->product->save([
             'name' => $name,
             'slug' => $slug,
             'description' => $description,
             'price' => $price,
-            'is_discount' => $is_discount,
+            'discount' => $discount,
             'category_id' => $category_id
         ]);
 
@@ -83,7 +90,14 @@ class Products extends BaseController {
         $slug = url_title($this->request->getVar('name'), '-', 'true');
         $description = $this->request->getVar('description');
         $price = $this->request->getVar('price');
-        $is_discount = $this->request->getVar('is_discount');
+        $discount = $this->request->getVar('discount');
+
+        // Remove '%' From Discount
+        $discount = trim($discount, "%");
+        $discount = intval($discount);
+
+        // Discount
+        $price = discount($price, $discount);
 
         $this->product->save([
             'id' => $id,
@@ -91,7 +105,7 @@ class Products extends BaseController {
             'slug' => $slug,
             'description' => $description,
             'price' => $price,
-            'is_discount' => $is_discount,
+            'discount' => $discount,
             'category_id' => $category_id
         ]);
 

@@ -19,11 +19,13 @@
 			</div>
 			<div class="product-detail">
 				<h2 class="pb-2"><?= $product['name']; ?></h2>
-
+				<?php if($product['discount'] != 0) : ?>
+					<div class="py-1 px-2 bg-black w-auto d-inline-block text-white fs-6 mb-2 fw-bolder"><?= $product['discount']; ?>%</div>
+				<?php endif; ?>
 				<div class="detail-price d-flex pb-2">
 					<p style="padding-right: 15px;">Rp. <?= rupiah($product['price']); ?></p>
-					<?php if($product['is_discount'] == 1) : ?>
-						<p><strike>Rp. 150.000</strike></p>
+					<?php if($product['discount'] != 0) : ?>
+						<p><strike>Rp. <?= rupiah($beforeDiscount); ?></strike></p>
 					<?php endif; ?>
 				</div>
 

@@ -45,12 +45,14 @@ class Pages extends BaseController
     public function product($slug)
     {
         $product = $this->productModel->getProduct($slug);
+        $beforeDiscount = beforeDiscount($product['price'], $product['discount']);
 
         $title =  $product['name'] . " - Eazy Store";
 
         $data = [
             'title' => $title,
-            'product' => $product
+            'product' => $product,
+            'beforeDiscount' => $beforeDiscount
         ];
 
         return view('pages/product', $data);

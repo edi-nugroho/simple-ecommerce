@@ -28,14 +28,9 @@
                 <input type="text" class="form-control" name="price" id="inputPrice" value="<?= $product['price'] ?>">
             </div>
 
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" name="is_discount" value="1" id="discountCheck" <?php if($product['is_discount'] == 1){ echo 'checked'; } ?>>
-                <label class="form-check-label" for="discountCheck">Discount</label>
-            </div>
-
-            <div class="mb-3">
+            <div class="mb-3" id="discount">
                 <label for="discountPercent" class="form-label">Discount</label>
-                <input type="text" class="form-control" id="discountPercent">
+                <input type="text" class="form-control" name="discount" id="discountPercent" value="<?= $product['discount'] ?>%" placeholder="Example. 25%">
             </div>
 
             <!-- Create the editor container -->

@@ -23,12 +23,8 @@
                 <label for="inputPrice" class="form-label">Price</label>
                 <input type="text" class="form-control" name="price" id="inputPrice">
             </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" name="is_discount" value="1" id="discountCheck">
-                <label class="form-check-label" for="discountCheck">Discount</label>
-            </div>
-            <div class="mb-3">
-                <label for="discountPercent" class="form-label">Discount</label>
+            <div class="mb-3" id="discount">
+                <label for="discountPercent" name="discount class="form-label">Discount</label>
                 <input type="text" class="form-control" id="discountPercent">
             </div>
 

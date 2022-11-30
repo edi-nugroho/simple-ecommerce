@@ -7,10 +7,10 @@
 			<div class="d-flex justify-content-between" style="flex-wrap: wrap;">
 				<?php foreach($products as $p) : ?>
 					<div class="product-card shadow-sm mb-5" style="width: 250px; background-color: white; padding: 0;">
-						<?php if($p->is_discount == 1) : ?>
+						<?php if($p->discount != 0) : ?>
 							<!-- Discount-->
 							<div class="discount" style="background-color: black; color: white; position: absolute;">
-								<h6 style="font-weight: 800; margin: 0; padding: 5px 10px;">20%</h6>
+								<h6 style="font-weight: 800; margin: 0; padding: 5px 10px;"><?= $p->discount; ?>%</h6>
 							</div>
 						<?php endif; ?>
 						<!-- Image Sementara -->
@@ -23,8 +23,10 @@
 
 							<div class="price-cart d-flex justify-content-between align-items-center">
 								<div class="price">
-									<p style="font-size: 12px; font-weight: 700; margin-bottom: 5px;"><strike>Rp. 150.000</strike></p>
-									<p style="font-size: 12px; font-weight: 700; margin: 0;">Rp. <?= number_format($p->price, 0, ',','.'); ?></p>
+									<?php if($p->discount != 0) : ?>
+										<p style="font-size: 12px; font-weight: 700; margin-bottom: 5px;"><strike>Rp. <?= rupiah(beforeDiscount($p->price, $p->discount)); ?></strike></p>
+									<?php endif; ?>
+									<p style="font-size: 12px; font-weight: 700; margin: 0;">Rp. <?= rupiah($p->price); ?></p>
 								</div>
 							</div>
 						</div>
