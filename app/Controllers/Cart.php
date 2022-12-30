@@ -75,15 +75,4 @@ class Cart extends BaseController {
 
         return redirect('cart');
     }
-
-    public function checkout()
-    {
-        $data = [
-            'title' => 'Checkout',
-            'product' => $this->cartModel->getCart(user_id()),
-            'priceTotal' => $this->cartModel->getTotal(user_id())
-        ];
-
-        return view('pages/checkout', $data);
-    }
 }

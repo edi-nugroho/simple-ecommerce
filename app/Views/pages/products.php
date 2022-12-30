@@ -4,29 +4,31 @@
 	<div class="all-products bg-light" style="width: 100%;">
 		<div class="container">
 			<h3 class="pb-4">All products</h3>
-			<div class="d-flex justify-content-between" style="flex-wrap: wrap;">
+			<div class="d-flex justify-content-between">
 				<?php foreach($products as $p) : ?>
-					<div class="product-card shadow-sm mb-5" style="width: 250px; background-color: white; padding: 0;">
+					<div class="products-card shadow-sm mb-5">
 						<?php if($p->discount != 0) : ?>
 							<!-- Discount-->
-							<div class="discount" style="background-color: black; color: white; position: absolute;">
-								<h6 style="font-weight: 800; margin: 0; padding: 5px 10px;"><?= $p->discount; ?>%</h6>
+							<div class="discount">
+								<h6><?= $p->discount; ?>%</h6>
 							</div>
 						<?php endif; ?>
 						<!-- Image Sementara -->
-						<a href="/product/<?= $p->slug; ?>" class="text-decoration-none" style="color: black;"><div class="bang" style="background-color: crimson; width: 100%; height: 300px;"></div></a>
+						<div class="image-card">
+							<a href="/product/<?= $p->slug; ?>" class="text-decoration-none"><img src="/uploads/<?= $p->image ?>" alt="" width="300"></a>
+						</div>
 						<!-- Detail Products -->
-						<div class="product-detail p-4" style="width: 100%; box-sizing: border-box;">
-							<h6 style="font-weight: 700; color: black;"><a href="/product/<?= $p->slug; ?>" class="text-decoration-none" style="color: black;"><?= $p->name; ?></a></h6>
+						<div class="product-detail p-4">
+							<h6 class="product-title"><a href="/product/<?= $p->slug; ?>" class="text-decoration-none color-black"><?= $p->p_name; ?></a></h6>
 
-							<p style="font-weight: 700; color: rgb(126, 126, 126); margin-bottom: 5px;"><?= $p->category_name; ?></p>
+							<p class="category-title"><?= $p->category_name; ?></p>
 
 							<div class="price-cart d-flex justify-content-between align-items-center">
 								<div class="price">
 									<?php if($p->discount != 0) : ?>
-										<p style="font-size: 12px; font-weight: 700; margin-bottom: 5px;"><strike>Rp. <?= rupiah(beforeDiscount($p->price, $p->discount)); ?></strike></p>
+										<p class="mb-1"><strike>Rp. <?= rupiah(beforeDiscount($p->price, $p->discount)); ?></strike></p>
 									<?php endif; ?>
-									<p style="font-size: 12px; font-weight: 700; margin: 0;">Rp. <?= rupiah($p->price); ?></p>
+									<p class="m-0">Rp. <?= rupiah($p->price); ?></p>
 								</div>
 							</div>
 						</div>

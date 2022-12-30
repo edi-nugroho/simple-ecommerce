@@ -21,7 +21,7 @@
                 <?php foreach($products as $p) : ?>
                 <tr>
                     <th scope="row"><?= $i; ?></th>
-                    <td><?= $p->name; ?></td>
+                    <td><?= $p->p_name; ?></td>
                     <td><?= $p->category_name; ?></td>
                     <td><?= rupiah($p->price); ?></td>
                     <td><a href="/products/edit/<?= $p->slug; ?>">Edit</a> | <a href="" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $p->p_id; ?>">Delete</a></td>

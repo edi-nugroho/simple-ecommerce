@@ -14,7 +14,7 @@ class Product extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['category_id', 'name', 'slug', 'description', 'price', 'discount'];
+    protected $allowedFields    = ['category_id', 'name', 'slug', 'description', 'price', 'discount', 'image'];
 
     // Dates
     protected $useTimestamps = false;
@@ -42,22 +42,32 @@ class Product extends Model
     
     public function getProducts()
     {
-        return $this->select('*, products.id as p_id')
+        return $this->select('*, products.id as p_id, products.name as p_name')
                     ->join('category', 'category.id = products.category_id')
                     ->get()
                     ->getResult();
     }
 
+    public function findByProductsId($id)
+    {
+        return $this->select('*, products.id as p_id, products.name as p_name')
+                    ->join('category', 'category.id = products.category_id')
+                    ->where(['products.id' => $id])
+                    ->get()
+                    ->getRow();
+    }
+
     public function getProduct($slug)
     {
-        return $this->select('*, products.id as p_id')
+        return $this->select('*, products.id as p_id, products.name as p_name')
                     ->join('category', 'category.id = products.category_id')
-                    ->where(['products.slug' => $slug])->get()->getRowArray();
+                    ->where(['products.slug' => $slug])->get()->getRow();
     }
 
     public function getProductLimit()
     {
-        return $this->join('category', 'category.id = products.category_id')
+        return $this->select('*, products.name as p_name')
+                    ->join('category', 'category.id = products.category_id')
                     ->limit(3)
                     ->get()
                     ->getResult();

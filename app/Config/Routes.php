@@ -46,8 +46,10 @@ $routes->get('/cart', 'Cart::index/$1');
 $routes->post('/cart/insert', 'Cart::insert', ['filter' => 'role:admin,staff,user']);
 $routes->post('/cart/update/(:num)', 'Cart::update/$1', ['filter' => 'role:admin,staff,user']);
 $routes->get('/cart/delete/(:num)', 'Cart::delete/$1', ['filter' => 'role:admin,staff,user']);
-$routes->post('/cart/checkout', 'Cart::checkout', ['filter' => 'role:admin,staff,user']);
-$routes->get('/checkout', 'Cart::checkout', ['filter' => 'role:admin,staff,user']);
+
+// Checkout
+$routes->get('/checkout', 'Checkout::index', ['filter' => 'role:admin,staff,user']);
+$routes->post('/checkout/insert', 'Checkout::insert', ['filter' => 'role:admin,staff,user']);
 
 // Auth
 $routes->get('/login', 'Auth::login');
@@ -71,6 +73,12 @@ $routes->get('/categories', 'categories::index', ['filter' => 'role:admin,staff'
 $routes->get('/categories/index', 'categories::index', ['filter' => 'role:admin,staff']);
 $routes->post('/categories/insert', 'categories::insert', ['filter' => 'role:admin,staff']);
 $routes->delete('/categories/delete/(:num)', 'categories::delete/$1', ['filter' => 'role:admin,staff']);
+
+// Profile
+$routes->get('/profile', 'Pages::myprofile', ['filter' => 'role:admin,staff']);
+$routes->get('/updateProfile/(:any)', 'Pages::updateProfile/$1', ['filter' => 'role:admin,staff']);
+$routes->get('/changePassword', 'Pages::changePassword', ['filter' => 'role:admin,staff']);
+$routes->post('/user/updateProfile/(:num)', 'Profile::updateProfile/$1', ['filter' => 'role:admin,staff']);
 
 /*
  * --------------------------------------------------------------------

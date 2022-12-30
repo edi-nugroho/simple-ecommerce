@@ -8,7 +8,7 @@
         
                 <?= view('Myth\Auth\Views\_message_block') ?>
 
-                <form action="<?= url_to('register') ?>" method="post">
+                <form action="<?= url_to('register') ?>" method="post" enctype="multipart/form-data">
                     <?= csrf_field() ?>
 
                     <div class="form-group">
@@ -29,6 +29,11 @@
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="login_email form-control <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" name="email" value="<?= old('email') ?>">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <textarea class="form-control <?php if (session('errors.address')) : ?>is-invalid<?php endif ?>" name="address" id="address" rows="3"></textarea>
                     </div>
 
                     <div class="form-group">

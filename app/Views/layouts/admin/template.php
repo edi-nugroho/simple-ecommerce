@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title; ?></title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/img/po.png">
     
     <!-- CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>/sidebar-assets/css/style.css">

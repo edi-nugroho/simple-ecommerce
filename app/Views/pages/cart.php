@@ -10,7 +10,7 @@
                 <div class="cart-detail">
                     <div class="cart-img__title">
                         <div class="img-product">
-                            <!-- IMG Belom Ada!! -->
+                            <img src="/uploads/<?= $c->image ?>" alt="" width="200">
                         </div>
                         <div class="title_product">
                             <a href=""><?= $c->p_name; ?></a>
@@ -42,19 +42,9 @@
                 </div>
                 </form>
                 <?php endforeach; ?>
-                <form action="cart/checkout" method="POST">
-                    <div class="d-none">
-                        <!-- Input for checkout -->
-                        <input type="hidden" name="user_id" value="<?= user_id(); ?>">
-                        <input type="hidden" name="status" value="Menunggu Konfirmasi">
-                        <input type="hidden" name="payment" value="COD">
-
-                    </div>
-
-                    <div class="bottom-cart-button">
-                        <a href="/checkout">Checkout</a>
-                    </div>
-                </form>
+                <div class="bottom-cart-button">
+                    <a href="/checkout">Checkout</a>
+                </div>
             <?php }else{ ?>
                 <div class="cart-detail">
                     <p>Empty</p>

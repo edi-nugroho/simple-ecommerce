@@ -48,6 +48,7 @@ class Products extends BaseController {
         $slug = url_title($this->request->getVar('name'), '-', 'true');
         $price = $this->request->getVar('price');
         $description = $this->request->getVar('description');
+        $image = $this->request->getFile('image');
         $discount = $this->request->getVar('discount');
 
         // Remove '%' From Discount
@@ -57,12 +58,18 @@ class Products extends BaseController {
         // Discount
         $price = discount($price, $discount);
 
+        // Image Configuration
+        $image->move('uploads');
+
+        $imageName = $image->getName();
+
         $this->product->save([
             'name' => $name,
             'slug' => $slug,
             'description' => $description,
             'price' => $price,
             'discount' => $discount,
+            'image' => $imageName,
             'category_id' => $category_id
         ]);
 
@@ -116,7 +123,11 @@ class Products extends BaseController {
 
     public function delete($id)
     {
+        // Cari Gambar Berdasarkan Id
+        $image = $this->product->findByProductsId($id);
+        
         $this->product->delete($id);
+        unlink('uploads/' . $image->image);
 
         session()->setFlashdata('pesan', 'Data product berhasil dihapus');
 

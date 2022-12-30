@@ -33,10 +33,13 @@ class Product extends Migration
             'price' => [
                 'type' => 'INT'
             ],
-            'is_discount' => [
+            'discount' => [
                 'type' => 'INT',
-                'constraint' => '1',
                 'null' => TRUE
+            ],
+            'image' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255
             ],
             'created_at datetime default current_timestamp',
             'updated_at datetime default current_timestamp on update current_timestamp'

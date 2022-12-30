@@ -4,7 +4,7 @@
     <div class="content">
         <h3 class="form-header mb-3">Input Data Product</h3>
 
-        <form action="/products/save" method="POST">
+        <form action="/products/save" method="POST" enctype="multipart/form-data">
             <!-- Input Data -->
             <div class="mb-3">
                 <label for="exampleInput" class="form-label">Product Name</label>
@@ -20,12 +20,16 @@
                 </select>
             </div>
             <div class="mb-3">
+                <label for="formFileImages" class="form-label">Image</label>
+                <input type="file" class="form-control" name="image" id="formFileImages">
+            </div>
+            <div class="mb-3">
                 <label for="inputPrice" class="form-label">Price</label>
                 <input type="text" class="form-control" name="price" id="inputPrice">
             </div>
             <div class="mb-3" id="discount">
-                <label for="discountPercent" name="discount class="form-label">Discount</label>
-                <input type="text" class="form-control" id="discountPercent">
+                <label for="discountPercent" class="form-label">Discount</label>
+                <input type="text" name="discount" class="form-control" id="discountPercent">
             </div>
 
             <!-- Create the editor container -->

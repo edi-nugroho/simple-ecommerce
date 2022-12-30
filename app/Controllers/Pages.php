@@ -3,14 +3,17 @@
 namespace App\Controllers;
 
 use App\Models\Product;
+use App\Models\Users;
 
 class Pages extends BaseController
 {
     protected $productModel;
+    protected $userModel;
 
     public function __construct()
     {
         $this->productModel = new Product();
+        $this->userModel = new Users;
     }
 
     public function index()
@@ -45,9 +48,9 @@ class Pages extends BaseController
     public function product($slug)
     {
         $product = $this->productModel->getProduct($slug);
-        $beforeDiscount = beforeDiscount($product['price'], $product['discount']);
+        $beforeDiscount = beforeDiscount($product->price, $product->discount);
 
-        $title =  $product['name'] . " - Eazy Store";
+        $title =  $product->p_name . " - Eazy Store";
 
         $data = [
             'title' => $title,
@@ -77,5 +80,36 @@ class Pages extends BaseController
         ];
 
         return view('pages/products', $data);
+    }
+
+    // Profile Page
+    public function myprofile()
+    {
+        $data = [
+            'title' => "Profile"
+        ];
+
+        return view('pages/profile', $data);
+    }
+
+    // Update Profile Page
+    public function updateProfile($username)
+    {   
+        $data = [
+            'title' => 'Update Profile | ' . $username,
+            'user' => $this->userModel->getUserByUsername(user()->username)
+        ];
+
+        return view('pages/updateProfile', $data);
+    }
+
+    // Change Password Page
+    public function changePassword()
+    {
+        $data = [
+            'title' => 'Change Password'
+        ];
+
+        return view('pages/changePassword', $data);
     }
 }

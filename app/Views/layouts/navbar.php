@@ -48,7 +48,7 @@
       <?php endif; ?>
       
       <?php if(logged_in()) : ?>
-        <a href="/myprofile" class="mx-3 text-black">
+        <a href="/profile" class="mx-3 text-black">
           <i class="fa-solid fa-user"></i>
         </a>
 

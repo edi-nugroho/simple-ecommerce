@@ -29,7 +29,8 @@ class Order extends Migration
             ],
             'status' => [
                 'type' => 'VARCHAR',
-                'constraint' => 255
+                'constraint' => 255,
+                'default' => 'On Process'
             ],
             'created_at datetime default current_timestamp',
             'updated_at datetime default current_timestamp on update current_timestamp'

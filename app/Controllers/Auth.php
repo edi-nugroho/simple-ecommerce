@@ -21,7 +21,7 @@ class Auth extends BaseController {
         $title = "Register Page";
 
         $data = [
-            'title' => $title
+            'title' => $title,
         ];
 
         return view('pages/auth/register', $data);
