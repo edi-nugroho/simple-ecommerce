@@ -4,9 +4,16 @@
     <div class="content">
         <h1>Products List</h1>
 
+        <?php if(session()->getFlashdata('pesan')) : ?>
+            <div class="alert alert-success mt-3" role="alert">
+                <?= session()->getFlashdata('pesan'); ?>
+            </div>
+        <?php endif; ?>
+
+
         <a href="/products/insert" class="primary-button">Add New Product</a>
 
-        <table class="table">
+        <table id="productTable" class="table">
             <thead class="table-dark">
                 <tr>
                     <th scope="col">No</th>
@@ -56,5 +63,11 @@
         </div>
     </div>
     <?php endforeach; ?>
+
+    <script>
+        $(document).ready(function () {
+            $('#productTable').DataTable();
+        });
+    </script>
 
 <?= $this->endSection(); ?>

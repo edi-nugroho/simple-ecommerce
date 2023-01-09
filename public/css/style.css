@@ -228,6 +228,18 @@ body > .navbar {
 	transition: 1s;
 }
 
+.detail-button > button:disabled {
+	opacity: 0.7;
+	cursor: not-allowed;
+	background-color: white;
+	color: black;
+}
+
+.detail-button > button:disabled:hover {
+	background-color: white;
+	color: black;
+}
+
 .detail-button > button:hover {
 	background-color: white;
 	color: black;
@@ -250,6 +262,11 @@ body > .navbar {
 	border: 1px solid #dcdcdc;
 	padding: 3px;
 	text-align: center;
+}
+
+.btn-check:checked + .btn {
+	border-radius: 0px;
+	border: 2px solid blue;
 }
 
 /* Cart Styling */
@@ -401,6 +418,10 @@ body > .navbar {
 	margin-left: 20px;
 }
 
+.profile-button a:nth-child(3) {
+	margin-left: 20px;
+}
+
 /* Login Page Styling */
 .login-page {
 	margin: 10rem 0;
@@ -443,6 +464,34 @@ body > .navbar {
 	text-decoration: none;
 	font-weight: 600;
 	color: black;
+}
+
+/* Order Styling */
+.order-detail {
+	padding-left: 20px;
+}
+
+.order-image {
+	width: 180px;
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.order-image > img {
+	width: 150px;
+}
+
+.order-button p {
+	padding: 10px 20px;
+	background-color: black;
+	color: white;
+	font-weight: bold;
+}
+
+.order-button p:nth-child(2) {
+	margin-left: 10px;
 }
 
 /* Footer Styling */

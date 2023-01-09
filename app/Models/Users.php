@@ -27,4 +27,11 @@ class Users extends Model
     {
         return $this->where(['username' => $username])->get()->getRow();
     }
+
+    public function updatePassword($id, $password)
+    {
+        return $this->set('password_hash', $password)
+                    ->where(['id' => $id])
+                    ->update();
+    }
 }

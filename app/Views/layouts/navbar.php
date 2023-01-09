@@ -25,16 +25,12 @@
         </li>
       </ul>
       <form action="/search" class="d-flex" role="search" method="GET">
-        <input class="search-input me-2" name="q" type="text" placeholder="Search">
+        <input class="search-input me-2" name="q" type="text" placeholder="Search" value="<?= old('q'); ?>">
         <button class="btn" type="submit">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </form>
       <a href="/cart" class="mx-3 text-black text-decoration-none position-relative">
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"style="font-size: 10px;">
-          10
-          <span class="visually-hidden">unread messages</span>
-        </span>
         <i class="fa-solid fa-cart-shopping"></i>
       </a>
 
@@ -48,10 +44,9 @@
       <?php endif; ?>
       
       <?php if(logged_in()) : ?>
-        <a href="/profile" class="mx-3 text-black">
-          <i class="fa-solid fa-user"></i>
-        </a>
-
+          <a class="mx-3 text-black" href="/profile">
+            <i class="fa-solid fa-user"></i>
+          </a>
         <?php if(in_groups('admin') || in_groups('staff')) : ?> 
           <a href="/admin" class="mx-3 p-2 bg-black text-white text-decoration-none" style="font-size: 12px;">
             Admin Panel

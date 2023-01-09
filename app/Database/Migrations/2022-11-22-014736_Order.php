@@ -20,6 +20,10 @@ class Order extends Migration
                 'type' => 'INT',
                 'unsigned' => true
             ],
+            'slug' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255
+            ],
             'payment' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255

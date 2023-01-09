@@ -75,11 +75,20 @@ class Product extends Model
 
     public function getProductByKeyword($keyword)
     {
-        return $this->join('category', 'category.id = products.category_id')
+        return $this->select('*, products.name as p_name')
+                    ->join('category', 'category.id = products.category_id')
                     ->like('name', $keyword)
                     ->orLike('category_name', $keyword)
                     ->get()
                     ->getResult();
+    }
+
+    public function getDiscount($id)
+    {
+        return $this->select('discount')
+                    ->where('id', $id)
+                    ->get()
+                    ->getRow();
     }
 
 }

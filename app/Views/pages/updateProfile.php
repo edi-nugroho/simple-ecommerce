@@ -5,6 +5,7 @@
         <div class="col-md-6">
             <h3 class="fw-bold">Profile</h3>
             <form action="/user/updateProfile/<?= $user->id ?>" method="POST" enctype="multipart/form-data">
+            <?= csrf_field() ?>
                 <input type="hidden" name="user_image_lama" value="<?= $user->user_image ?>">
                 <div class="mb-3">
                     <div class="profile-picture img-thumbnail mb-2">

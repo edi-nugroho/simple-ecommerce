@@ -19,6 +19,9 @@ class OrderDetail extends Migration
             'product_id' => [
                 'type' => 'INT',
             ],
+            'option_id' => [
+                'type' => 'INT'
+            ],
             'qty' => [
                 'type' => 'INT'
             ],
@@ -28,6 +31,7 @@ class OrderDetail extends Migration
         $this->forge->addKey('id', true);
         $this->forge->addForeignKey('order_id', 'order', 'id');
         $this->forge->addForeignKey('product_id', 'products', 'id');
+        $this->forge->addForeignKey('option_id', 'options', 'id');
         $this->forge->createTable('orderdetail');
     }
 

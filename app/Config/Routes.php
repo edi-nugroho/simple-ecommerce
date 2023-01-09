@@ -67,6 +67,7 @@ $routes->post('/products/save', 'products::save', ['filter' => 'role:admin,staff
 $routes->get('/products/edit/(:any)', 'products::edit/$1', ['filter' => 'role:admin,staff']);
 $routes->post('/products/update/(:num)', 'products::update/$1', ['filter' => 'role:admin,staff']);
 $routes->delete('/products/delete/(:num)', 'products::delete/$1', ['filter' => 'role:admin,staff']);
+$routes->get('/products/checkstock/(:num)/(:num)', 'products::checkStock/$1/$2');
 
 // Categories Routes
 $routes->get('/categories', 'categories::index', ['filter' => 'role:admin,staff']);
@@ -79,6 +80,36 @@ $routes->get('/profile', 'Pages::myprofile', ['filter' => 'role:admin,staff']);
 $routes->get('/updateProfile/(:any)', 'Pages::updateProfile/$1', ['filter' => 'role:admin,staff']);
 $routes->get('/changePassword', 'Pages::changePassword', ['filter' => 'role:admin,staff']);
 $routes->post('/user/updateProfile/(:num)', 'Profile::updateProfile/$1', ['filter' => 'role:admin,staff']);
+
+// Forgot Password
+$routes->get('/forgot', 'Profile::forgotPassword');
+
+// Reset Password
+$routes->get('/reset-password', 'Profile::resetPassword');
+
+// Change Password
+$routes->post('/changePassword', 'Profile::changePassword', ['filter' => 'role:admin,staff']);
+
+// Order
+$routes->get('/orders', 'OrderController::index', ['filter' => 'role:admin,staff']);
+$routes->get('/orderDetail/(:any)', 'OrderController::orderDetail/$1', ['filter' => 'role:admin,staff']);
+$routes->get('/orders/delete/(:num)', 'OrderController::delete/$1', ['filter' => 'role:admin,staff']);
+$routes->get('/history/(:any)', 'OrderController::history/$1', ['filter' => 'role:admin,staff']);
+$routes->get('/historyDetail/(:any)', 'OrderController::historyDetail/$1', ['filter' => 'role:admin,staff']);
+$routes->post('/order/updateStatus/(:num)', 'OrderController::updateStatus/$1', ['filter' => 'role:admin,staff']);
+
+// Order List
+$routes->get('/orderLists', 'OrderAdminController::index', ['filter' => 'role:admin,staff']);
+$routes->post('/orderList/updateStatus/(:num)', 'OrderAdminController::updateStatus/$1', ['filter' => 'role:admin,staff']);
+
+// Option
+$routes->get('/options', 'OptionsAdminController::index', ['filter' => 'role:admin,staff']);
+$routes->post('/options/insert', 'OptionsAdminController::insert', ['filter' => 'role:admin,staff']);
+$routes->delete('/options/delete/(:num)', 'OptionsAdminController::delete/$1', ['filter' => 'role:admin,staff']);
+
+// Inventory
+$routes->get('/inventory', 'InventoryAdminController::index', ['filter' => 'role:admin,staff']);
+$routes->post('/inventory/insert', 'InventoryAdminController::insert', ['filter' => 'role:admin,staff']);
 
 /*
  * --------------------------------------------------------------------

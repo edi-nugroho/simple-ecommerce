@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Cart extends Migration
+class Inventory extends Migration
 {
     public function up()
     {
@@ -13,33 +13,24 @@ class Cart extends Migration
 
         $this->forge->addField([
             'id' => [
-                'type' => 'int',
+                'type' => 'INT',
                 'auto_increment' => true
             ],
-            'user_id' => [
-                'type' => 'int',
-                'unsigned' => true
-            ],
             'product_id' => [
-                'type' => 'int'
+                'type' => 'INT'
             ],
             'option_id' => [
-                'type' => 'int'
+                'type' => 'INT'
             ],
-            'qty' => [
-                'type' => 'int'
-            ],
-            'total' => [
-                'type' => 'int'
-            ],
-            'created_at datetime default current_timestamp',
-            'updated_at datetime default current_timestamp on update current_timestamp'
+            'stock' => [
+                'type' => 'INT',
+            ]
         ]);
+
         $this->forge->addKey('id', true);
-        $this->forge->addForeignKey('user_id', 'users', 'id');
         $this->forge->addForeignKey('product_id', 'products', 'id');
         $this->forge->addForeignKey('option_id', 'options', 'id');
-        $this->forge->createTable('cart');
+        $this->forge->createTable('inventory');
 
         // Enable foreign key check
         $this->db->enableForeignKeyChecks();
@@ -47,6 +38,6 @@ class Cart extends Migration
 
     public function down()
     {
-        $this->forge->dropTable('cart');
+        $this->forge->dropTable('inventory');
     }
 }

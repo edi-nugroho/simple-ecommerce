@@ -34,6 +34,7 @@ class Cart extends BaseController {
     {
         $user_id = $this->request->getVar('user_id');
         $product_id = $this->request->getVar('product_id');
+        $option_id = $this->request->getVar('option_id');
         $qty = $this->request->getVar('qty');
 
         // Total Process
@@ -43,6 +44,7 @@ class Cart extends BaseController {
         $this->cartModel->save([
             'user_id' => $user_id,
             'product_id' => $product_id,
+            'option_id' => $option_id,
             'qty' => $qty,
             'total' => $total
         ]);

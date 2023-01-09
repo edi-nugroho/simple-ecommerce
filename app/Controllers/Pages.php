@@ -4,16 +4,22 @@ namespace App\Controllers;
 
 use App\Models\Product;
 use App\Models\Users;
+use App\Models\Options;
+use App\Models\InventoryModel;
 
 class Pages extends BaseController
 {
     protected $productModel;
     protected $userModel;
+    protected $options;
+    protected $inventoryModel;
 
     public function __construct()
     {
         $this->productModel = new Product();
         $this->userModel = new Users;
+        $this->options = new Options();
+        $this->inventoryModel = new InventoryModel();
     }
 
     public function index()
@@ -49,12 +55,13 @@ class Pages extends BaseController
     {
         $product = $this->productModel->getProduct($slug);
         $beforeDiscount = beforeDiscount($product->price, $product->discount);
-
+            
         $title =  $product->p_name . " - Eazy Store";
 
         $data = [
             'title' => $title,
             'product' => $product,
+            'options' => $this->inventoryModel->getOptions($product->p_id),
             'beforeDiscount' => $beforeDiscount
         ];
 

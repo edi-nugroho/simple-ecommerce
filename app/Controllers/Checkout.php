@@ -36,10 +36,12 @@ class Checkout extends BaseController {
         $payment = $this->request->getVar('payment');
         $total = $this->request->getVar('total');
         $status = $this->request->getVar('status');
-
+        $slug = random_string('alnum', 16);
+        
         // Insert For Order
         $this->orderModel->save([
             'user_id' => $userId,
+            'slug' => $slug,
             'payment' => $payment,
             'total' => $total,
             'status' => $status
@@ -47,6 +49,7 @@ class Checkout extends BaseController {
 
         $orderId = $this->orderModel->getInsertID();
         $productId = $this->request->getVar('product_id');
+        $optionId = $this->request->getVar('option_id');
         $qty = $this->request->getVar('qty');
 
         $i = 0;
@@ -55,6 +58,7 @@ class Checkout extends BaseController {
             $this->orderDetailModel->save([
                 'order_id' => $orderId,
                 'product_id' => $p,
+                'option_id' => $optionId[$i],
                 'qty' => $qty[$i]
             ]);
             $i++;

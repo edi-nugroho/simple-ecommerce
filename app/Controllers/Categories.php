@@ -20,6 +20,7 @@ class Categories extends BaseController {
         $data = [
             'title' => 'Categories List | Eazy Store',
             'user'  => $this->user->getUserById(user_id()),
+            'request' => \Config\Services::request(),
             'categories' => $this->category->getCategories()
         ];
 

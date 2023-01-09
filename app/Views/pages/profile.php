@@ -19,8 +19,9 @@
                 </div>
             </div>
             <div class="profile-button mt-4 mb-4">
-                <a href="">Pesanan Saya</a>
+                <a href="/orders">Order</a>
                 <a href="/updateProfile/<?= user()->username; ?>">Update Profile</a>
+                <a href="/history/<?= user()->username ?>">History</a>
             </div>
         </div>
     </div>

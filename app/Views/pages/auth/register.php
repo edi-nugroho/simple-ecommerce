@@ -49,7 +49,7 @@
                     <button type="submit">Register</button>
 
                     <a href="/login">Sign In</a>
-                    <a href="/forgot-password">Forgot Password</a>
+                    <a href="/forgot">Forgot Password</a>
                 </form>
             </div>
         </div>

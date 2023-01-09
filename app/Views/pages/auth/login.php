@@ -47,7 +47,9 @@
                     
                     <button type="submit">Sign In</button>
                     <a href="/register">Create Account</a>
-                    <a href="<?= url_to('forgot') ?>">Forgot Password</a>
+                    <?php if ($config->activeResetter): ?>
+                        <a href="/forgot"><?=lang('Auth.forgotYourPassword')?></a>
+                    <?php endif; ?>
                 </form>
             </div>
         </div>

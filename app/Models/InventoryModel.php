@@ -4,17 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class CartModel extends Model
+class InventoryModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'cart';
+    protected $table            = 'inventory';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['user_id', 'product_id', 'option_id', 'qty', 'total'];
+    protected $allowedFields    = ['product_id', 'option_id', 'stock'];
 
     // Dates
     protected $useTimestamps = false;
@@ -40,28 +40,35 @@ class CartModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getCart($id)
+    public function getAll()
     {
-        return $this->select('*, products.name as p_name, cart.id as c_id, options.id as options_id, products.id as product_id')
-                    ->join('users', 'users.id = cart.user_id')
-                    ->join('products', 'products.id = cart.product_id')
-                    ->join('options', 'options.id = cart.option_id')
-                    ->where(['users.id' => $id])
+        return $this->join('products', 'products.id = inventory.product_id')
+                    ->join('options', 'options.id = inventory.option_id')
                     ->get()
                     ->getResult();
     }
 
-    public function getTotal($id)
+    public function getOptions($id)
     {
-        return $this->select('SUM(total) as total')
-                    ->join('users', 'users.id = cart.user_id')
-                    ->where(['users.id' => $id])
+        return $this->join('options', 'options.id = inventory.option_id')
+                    ->where(['product_id' => $id])->get()->getResult();
+    }
+
+    public function getStock($product_id, $option_id)
+    {
+        return $this->select('stock')
+                    ->join('options', 'options.id = inventory.option_id')
+                    ->where('product_id', $product_id)
+                    ->where('option_id', $option_id)
                     ->get()
                     ->getRow();
     }
 
-    public function deleteByUserId($user_id)
+    public function updateStock($product_id, $option_id, $stock)
     {
-        return $this->where(['user_id' => $user_id])->delete();
+        return $this->set('stock', $stock)
+                    ->where('product_id', $product_id)
+                    ->where('option_id', $option_id)
+                    ->update();
     }
 }

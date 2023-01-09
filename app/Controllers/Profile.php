@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\Users;
+use Myth\Auth\Password;
 
 class Profile extends BaseController {
     protected $users;
@@ -47,6 +49,46 @@ class Profile extends BaseController {
 
         return redirect('profile');   
 
+    }
+
+    public function changePassword()
+    {
+        $id = $this->request->getVar('id');
+        $oldPassword = $this->request->getVar('old-password');
+        $newPassword = $this->request->getVar('new-password');
+
+        $password = user()->password_hash;
+
+        // base64_encode(hash('sha384', service('request')->getPost('newPasswords'), true))
+
+        if (password_verify(base64_encode(hash('sha384', $oldPassword, true)), $password)) {
+            
+            $newPassword = Password::hash($newPassword);
+
+            $this->users->updatePassword(user_id(), $newPassword);
+
+            session()->setFlashdata('success', "Your password has been changed!");
+
+            return redirect('profile');
+        } else {
+            session()->setFlashdata('fail', "The password you entered doesn't match!");
+            
+            return redirect('changePassword');
+        }
+    }
+
+    public function forgotPassword()
+    {
+        $data['title'] = 'Forgot Password';
+
+        return view('pages/forgotPassword', $data);
+    }
+
+    public function resetPassword()
+    {
+        $data['title'] = 'Reset Password';
+
+        return view('pages/resetPassword', $data);
     }
 
 }

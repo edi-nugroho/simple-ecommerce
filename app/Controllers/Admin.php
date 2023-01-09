@@ -14,10 +14,12 @@ class Admin extends BaseController {
     public function index()
     {
         $users = new \Myth\Auth\Models\UserModel();
+        $request = \Config\Services::request();
 
         $data = [
             'title' => 'Eazy Store | Admin',
             'user'  => $this->user->getUserById(user_id()),
+            'request' => $request,
             'users' => $users->findAll()
         ];
 

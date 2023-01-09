@@ -11,7 +11,7 @@
 
         <p>Dashboard</p>
         <li>
-            <a href="/admin">Dashboard</a>
+            <a href="/admin" class="<?= ($request->uri->getSegment(1) === 'admin') ? 'active' : ''; ?>">Dashboard</a>
         </li>
 
         <?php if(in_groups('admin')) : ?>
@@ -24,20 +24,23 @@
 
         <p>Products Management</p>
         <li>
-            <a href="/products">Products</a>
+            <a href="/products" class="<?= ($request->uri->getSegment(1) === 'products') ? 'active' : ''; ?>">Products</a>
         </li>
         <li>
-            <a href="">Stock</a>
+            <a href="/options" class="<?= ($request->uri->getSegment(1) === 'options') ? 'active' : ''; ?>">Options</a>
+        </li>
+        <li>
+            <a href="/inventory" class="<?= ($request->uri->getSegment(1) === 'inventory') ? 'active' : ''; ?>">Stock</a>
         </li>
 
         <p>Categories Management</p>
         <li>
-            <a href="/categories" class="">Categories</a>
+            <a href="/categories" class="<?= ($request->uri->getSegment(1) === 'categories') ? 'active' : ''; ?>">Categories</a>
         </li>
 
         <p>Order Management</p>
         <li>
-            <a href="">Order list</a>
+            <a href="/orderLists" class="<?= ($request->uri->getSegment(1) === 'orderLists') ? 'active' : ''; ?>">Order list</a>
         </li>
 
         <hr>

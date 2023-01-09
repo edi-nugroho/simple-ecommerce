@@ -37,29 +37,60 @@
 					<?= $product->description; ?>
 				</div>
 
-				<div class="detail-size pb-4">
-					<label for="">Size : </label>
-
-					<input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
-					<label class="btn" for="option1">M</label>
-
-					<input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
-					<label class="btn" for="option2">L</label>
-
-					<input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
-					<label class="btn" for="option4">XL</label>				
+				<div class="detail-size mb-4">
+					<label for="" class="mb-2">Size : </label>
+					
+					<?php foreach ($options as $option) : ?>
+						<input type="radio" class="btn-check my-3" name="option_id" id="option<?= $option->id; ?>" value="<?= $option->id; ?>" autocomplete="off">
+						<label class="btn" for="option<?= $option->id; ?>"><?= $option->option; ?></label>
+					<?php endforeach; ?>
 				</div>
 
-				<div class="detail-qty pb-3">
+				<div class="detail-qty pb-3" id="qtyCart">
 					<label>Qty : </label>
 					<input type="number" name="qty" class="qty-input" min="1" value="1">
 				</div>
 
 				<div class="detail-button">
-					<button type="submit" class="primary">Add to cart</button>
+					<button type="submit" id="buttonCart" class="primary fw-bolder">Add to cart</button>
 				</div>
 			</div>
 		</form>
 		</div>
 	</div>
+
+	<script>
+        $(document).ready(function() {
+			
+			let input = $('input[name=option_id]');
+
+			input.each(function() {
+				let Id = $(this);
+
+				Id.click(function() {
+					let optionId = Id.val();
+					let productId = $('input[name=product_id]').val();
+	
+					$.ajax({
+						url: 'http://localhost:8080/products/checkstock/' + productId + '/' + optionId, // alamat URL untuk mengecek stok
+						type: 'GET', // metode request yang akan digunakan (GET atau POST)
+						dataType: 'json', // tipe data yang diharapkan sebagai respon dari server
+						success: function(result) { // jika request berhasil, maka akan memanggil fungsi ini
+							if (result.stock > 0) {
+								// sembunyikan pesan bahwa stok habis
+								$('#buttonCart').html('Add to cart');
+								$('#buttonCart').removeAttr("disabled", "disabled");
+								$('#qtyCart').show();
+							} else {
+								// tampilkan pesan bahwa stok habis
+								$('#buttonCart').html('Sold Out');
+								$('#buttonCart').attr("disabled", "disabled");
+								$('#qtyCart').hide();
+							}
+						}
+					});
+				});
+			});
+        });
+    </script>
 <?= $this->endSection(); ?>

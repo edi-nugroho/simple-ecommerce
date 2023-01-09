@@ -14,7 +14,7 @@
                         </div>
                         <div class="title_product">
                             <a href=""><?= $c->p_name; ?></a>
-                            <p>L</p>
+                            <p><?= $c->option; ?></p>
                             <a href="<?= site_url('cart/delete/') . $c->c_id ?>"
                                name="remove"
                                class="remove__button">Remove</a>

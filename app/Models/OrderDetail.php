@@ -14,7 +14,7 @@ class OrderDetail extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['order_id', 'product_id', 'qty'];
+    protected $allowedFields    = ['order_id', 'product_id', 'option_id', 'qty'];
 
     // Dates
     protected $useTimestamps = false;
@@ -39,4 +39,11 @@ class OrderDetail extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getByOrderId($order_id)
+    {
+        return $this->where('order_id', $order_id)
+                    ->get()
+                    ->getResult();
+    }
 }

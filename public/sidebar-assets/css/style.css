@@ -172,6 +172,12 @@ a:focus {
     background: var(--utama);
 }
 
+#sidebar ul li .active {
+    color: #ffffff;
+    border-radius: 10px;
+    background: var(--utama);
+}
+
 #sidebar .navbar-nav .nav-link:hover {
     color: white;
 }
