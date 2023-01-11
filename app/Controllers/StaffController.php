@@ -54,7 +54,6 @@ class StaffController extends BaseController {
         $username = $this->request->getVar('username');
         $email = $this->request->getVar('email');
         $phone_number = $this->request->getVar('phone_number');
-        $group_id = $this->request->getVar('group_id');
         $password = $this->request->getVar('password');
 
         // Validasi Input
@@ -89,7 +88,7 @@ class StaffController extends BaseController {
         $user_id = $this->user->getInsertID();
 
         $this->auth_groups_users->save([
-            'group_id' => $group_id,
+            'group_id' => 3,
             'user_id' => $user_id
         ]);
 
