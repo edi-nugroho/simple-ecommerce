@@ -2,7 +2,7 @@
 
 <?= $this->section('content'); ?>
     <div class="content">
-        <h1>Products List</h1>
+        <h1>Staff</h1>
 
         <?php if(session()->getFlashdata('pesan')) : ?>
             <div class="alert alert-success mt-3" role="alert">
@@ -10,27 +10,27 @@
             </div>
         <?php endif; ?>
 
-        <a href="/products/insert" class="primary-button">Add New Product</a>
+        <a href="/staff/insert" class="primary-button">Add New Staff</a>
 
         <table id="productTable" class="table">
             <thead class="table-dark">
                 <tr>
                     <th scope="col">No</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Price</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Role</th>
                     <th scope="col">Option</th>
                 </tr>
             </thead>
             <tbody>
                 <?php $i = 1; ?>
-                <?php foreach($products as $p) : ?>
+                <?php foreach($users as $user) : ?>
                 <tr>
                     <th scope="row"><?= $i; ?></th>
-                    <td><?= $p->p_name; ?></td>
-                    <td><?= $p->category_name; ?></td>
-                    <td><?= rupiah($p->price); ?></td>
-                    <td><a href="/products/edit/<?= $p->slug; ?>">Edit</a> | <a href="" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $p->p_id; ?>">Delete</a></td>
+                    <td><?= $user->user_name; ?></td>
+                    <td><?= $user->email; ?></td>
+                    <td><?= $user->description; ?></td>
+                    <td><a href="" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $user->user_id; ?>">Delete</a></td>
                 </tr>
                 <?php $i++; ?>
                 <?php endforeach; ?>
@@ -39,15 +39,15 @@
     </div>
 
     <!-- Delete Modal -->
-    <?php foreach($products as $p) : ?>
-    <div class="modal fade" id="deleteModal<?= $p->p_id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <?php foreach($users as $user) : ?>
+    <div class="modal fade" id="deleteModal<?= $user->user_id; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">Delete Product</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="/products/delete/<?= $p->p_id; ?>" method="POST">
+                <form action="/users/delete/<?= $user->user_id; ?>" method="POST">
                     <div class="modal-body">
                         <input type="hidden" name="_method" value="DELETE">
                         <!-- Text -->

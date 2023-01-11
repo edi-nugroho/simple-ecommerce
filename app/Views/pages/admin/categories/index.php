@@ -4,6 +4,18 @@
     <div class="content">
         <h1>Categories List</h1>
 
+        <?php if(session()->getFlashdata('pesan')) : ?>
+            <div class="alert alert-success mt-3" role="alert">
+                <?= session()->getFlashdata('pesan'); ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if(session()->getFlashdata('fail')) : ?>
+            <div class="alert alert-danger mt-3" role="alert">
+                <?= session()->getFlashdata('fail'); ?>
+            </div>
+        <?php endif; ?>
+
         <button type="button" class="primary-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New Category</button>
 
         <table class="table">

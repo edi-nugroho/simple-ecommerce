@@ -104,7 +104,7 @@ class Products extends BaseController {
             'category_id' => $category_id
         ]);
 
-        session()->setFlashdata('pesan', 'Data Product berhasil ditambahkan');
+        session()->setFlashdata('pesan', 'Product has been added');
 
         return redirect('products');
     }
@@ -195,7 +195,7 @@ class Products extends BaseController {
             'category_id' => $category_id
         ]);
 
-        session()->setFlashdata('pesan', 'Data Product berhasil diupdate');
+        session()->setFlashdata('pesan', 'Product has been updated');
 
         return redirect('products');        
     }
@@ -208,7 +208,7 @@ class Products extends BaseController {
         $this->product->delete($id);
         unlink('uploads/' . $image->image);
 
-        session()->setFlashdata('pesan', 'Data product berhasil dihapus');
+        session()->setFlashdata('pesan', 'Product has been deleted');
 
         return redirect()->to('/products');
     }

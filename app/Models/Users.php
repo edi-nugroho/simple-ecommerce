@@ -12,7 +12,7 @@ class Users extends Model
 
     protected $allowedFields  = [
         'email', 'name', 'username', 'user_image', 'address', 'phone_number', 'password_hash', 'reset_hash', 'reset_at', 'reset_expires', 'activate_hash',
-        'status', 'status_message', 'active', 'force_pass_reset', 'permissions', 'deleted_at'
+        'status', 'status_message', 'active', 'force_pass_reset', 'permissions', 'created_at', 'updated_at'
     ];
 
     public function getUserById($id)
@@ -33,5 +33,15 @@ class Users extends Model
         return $this->set('password_hash', $password)
                     ->where(['id' => $id])
                     ->update();
+    }
+
+    public function getStaff()
+    {
+        return $this->select('*, users.name as user_name, users.id as userId')
+                    ->join('auth_groups_users', 'users.id = auth_groups_users.user_id')
+                    ->join('auth_groups', 'auth_groups.id = auth_groups_users.group_id')
+                    ->where('group_id', 3)
+                    ->get()
+                    ->getResult();
     }
 }

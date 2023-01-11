@@ -33,11 +33,34 @@ class OrderAdminController extends BaseController {
         return view('pages/admin/orders/index', $data);
     }
 
+    public function detail($slug)
+    {
+        $data = [
+            'title' => 'Order Detail',
+            'user'  => $this->user->getUserById(user_id()),
+            'request' => \Config\Services::request(),
+            'order' => $this->order->getOrderDetailBySlug($slug),
+            'orderTotal' => $this->order->getTotal($slug),
+            'orderStatus' => $this->order->getStatus($slug),
+            'orderId' => $this->order->getOrderID($slug)
+        ];
+
+        return view('pages/admin/orders/detail', $data);
+    }
+
     public function updateStatus($id)
     {
         $status = $this->request->getVar('status');
 
         $orderDetail = $this->orderDetail->getByOrderId($id);
+
+        if(!$this->validate([
+			'status' => 'required'
+		])){
+            session()->setFlashdata('fail', 'Status failed to updated!');
+
+			return redirect()->to('/orderLists')->withInput();
+		}
 
         $i = 0;
         foreach ($orderDetail as $order) {
@@ -56,6 +79,8 @@ class OrderAdminController extends BaseController {
             'id' => $id,
             'status' => $status
         ]);
+
+        session()->setFlashdata('pesan', 'Status has been updated');
 
         return redirect('orderLists');
     }

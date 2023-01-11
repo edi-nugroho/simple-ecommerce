@@ -41,12 +41,59 @@ class InventoryAdminController extends BaseController {
         $option_id = $this->request->getVar('option_id');
         $stock = $this->request->getVar('stock');
 
+        if(!$this->validate([
+			'product_id' => [
+                'rules' => 'required'
+            ],
+            'option_id' => [
+                'rules' => 'required'
+            ],
+			'stock' => 'required'
+		])){
+            session()->setFlashdata('fail', 'Stock failed to add');
+            
+			return redirect()->to('/inventory')->withInput();
+		}
+
         $this->inventoryModel->save([
             'product_id' => $product_id,
             'option_id' => $option_id,
             'stock' => $stock
         ]);
 
+        session()->setFlashdata('pesan', 'Stock has been added!');
+
         return redirect('inventory');
+    }
+
+    public function update($id)
+    {
+        $stock = $this->request->getVar('stock');
+
+        if(!$this->validate([
+			'stock' => 'required'
+		])){
+            session()->setFlashdata('fail', 'Stock failed to updated!');
+            
+			return redirect()->to('/inventory')->withInput();
+		}
+
+        $this->inventoryModel->save([
+            'id' => $id,
+            'stock' => $stock
+        ]);
+
+        session()->setFlashdata('pesan', 'Stock has been updated!');
+
+        return redirect('inventory');
+    }
+
+    public function delete($id)
+    {
+        $this->inventoryModel->delete($id);
+
+        session()->setFlashdata('pesan', 'Stock has been deleted!');
+
+        return redirect()->to('/inventory');
     }
 }

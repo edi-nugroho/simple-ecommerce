@@ -100,6 +100,7 @@ $routes->post('/order/updateStatus/(:num)', 'OrderController::updateStatus/$1', 
 
 // Order List
 $routes->get('/orderLists', 'OrderAdminController::index', ['filter' => 'role:admin,staff']);
+$routes->get('/orderLists/detail/(:any)', 'OrderAdminController::detail/$1', ['filter' => 'role:admin,staff']);
 $routes->post('/orderList/updateStatus/(:num)', 'OrderAdminController::updateStatus/$1', ['filter' => 'role:admin,staff']);
 
 // Option
@@ -110,6 +111,14 @@ $routes->delete('/options/delete/(:num)', 'OptionsAdminController::delete/$1', [
 // Inventory
 $routes->get('/inventory', 'InventoryAdminController::index', ['filter' => 'role:admin,staff']);
 $routes->post('/inventory/insert', 'InventoryAdminController::insert', ['filter' => 'role:admin,staff']);
+$routes->post('/inventory/update/(:num)', 'InventoryAdminController::update/$1', ['filter' => 'role:admin,staff']);
+$routes->delete('/inventory/delete/(:num)', 'InventoryAdminController::delete/$1', ['filter' => 'role:admin,staff']);
+
+// Staff
+$routes->get('/staff', 'StaffController::index', ['filter' => 'role:admin']);
+$routes->get('/staff/insert', 'StaffController::insert', ['filter' => 'role:admin']);
+$routes->post('/staff/save', 'StaffController::save', ['filter' => 'role:admin']);
+$routes->delete('/users/delete/(:num)', 'StaffController::delete/$1', ['filter' => 'role:admin']);
 
 /*
  * --------------------------------------------------------------------

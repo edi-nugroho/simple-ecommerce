@@ -31,11 +31,19 @@ class Categories extends BaseController {
     {
         $category_name = $this->request->getVar('category_name');
 
+        if(!$this->validate([
+			'category_name' => 'required'
+		])){
+            session()->setFlashdata('fail', 'Category failed to added!');
+            
+			return redirect()->to('/categories')->withInput();
+		}
+
         $this->category->save([
             'category_name' => $category_name
         ]);
 
-        session()->setFlashdata('pesan', 'Data Category berhasil ditambahkan');
+        session()->setFlashdata('pesan', 'Category has been added!');
 
         return redirect('categories');
     }
@@ -44,7 +52,7 @@ class Categories extends BaseController {
     {
         $this->category->delete($id);
 
-        session()->setFlashdata('pesan', 'Data berhasil dihapus');
+        session()->setFlashdata('pesan', 'Category has been deleted!');
 
         return redirect()->to('/categories');
     }

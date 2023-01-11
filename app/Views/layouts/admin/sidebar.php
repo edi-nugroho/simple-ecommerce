@@ -17,8 +17,7 @@
         <?php if(in_groups('admin')) : ?>
             <p>User Management</p>
             <li>
-                <a href="#">Staff List</a>
-                <a href="#">Staff Management</a>
+                <a href="/staff" class="<?= ($request->uri->getSegment(1) === 'staff') ? 'active' : ''; ?>">Staff</a>
             </li>
         <?php endif; ?>
 

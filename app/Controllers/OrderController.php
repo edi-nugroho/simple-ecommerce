@@ -29,7 +29,7 @@ class OrderController extends BaseController {
     {
         $data = [
             'title' => 'Order',
-            'order' => $this->order->getOrderDetailById($slug),
+            'order' => $this->order->getOrderDetailBySlug($slug),
             'orderTotal' => $this->order->getTotal($slug),
             'orderStatus' => $this->order->getStatus($slug),
             'orderId' => $this->order->getOrderID($slug)

@@ -10,6 +10,12 @@
             </div>
         <?php endif; ?>
 
+        <?php if(session()->getFlashdata('fail')) : ?>
+            <div class="alert alert-danger mt-3" role="alert">
+                <?= session()->getFlashdata('fail'); ?>
+            </div>
+        <?php endif; ?>
+
         <a href="/products/insert" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="primary-button">Add New Option</a>
 
         <table id="inventoryTable" class="table">

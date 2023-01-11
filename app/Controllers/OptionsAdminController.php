@@ -33,6 +33,14 @@ class OptionsAdminController extends BaseController
     {
         $option = $this->request->getVar('option');
 
+        if(!$this->validate([
+			'option' => 'required'
+		])){
+            session()->setFlashdata('fail', 'Option failed to added!');
+            
+			return redirect()->to('/options')->withInput();
+		}
+
         $this->options->save([
             'option' => $option
         ]);

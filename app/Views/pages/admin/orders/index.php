@@ -22,7 +22,7 @@
                     <td><?= $order->nameUser; ?></td>
                     <td><?= $order->orderStatus; ?></td>
                     <td>Rp. <?= rupiah($order->total); ?></td>
-                    <td><a href="">Detail</a> | <a href="" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $order->orderId; ?>">Update</a></td>
+                    <td><a href="/orderLists/detail/<?= $order->order_slug ?>">Detail</a> | <a href="" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $order->orderId; ?>">Update</a></td>
                 </tr>
                 <?php $i++; ?>
                 <?php endforeach; ?>
@@ -46,7 +46,6 @@
                     <div class="modal-body">
                         <!-- Text -->
                         <select class="form-select" name="status" aria-label="Default select example">
-                            <option selected>Open this select menu</option>
                             <option value="On Process">On Process</option>
                             <option value="On Delivery">On Delivery</option>
                         </select>

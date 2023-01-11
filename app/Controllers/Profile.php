@@ -42,7 +42,8 @@ class Profile extends BaseController {
             'username' => $username,
             'phone_number' => $phone_number,
             'address' => $address,
-            'user_image' => $imageName
+            'user_image' => $imageName,
+            'updated_at' => date('Y-m-d H:i:s')
         ]);
 
         session()->setFlashdata('pesan', 'Data Product berhasil diupdate');

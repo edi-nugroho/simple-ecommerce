@@ -42,7 +42,7 @@ class Order extends Model
 
     public function getAll()
     {
-        return $this->select('*, products.name as product_name, order.id as orderId, users.name as nameUser, order.status as orderStatus, options.id as option_id, products.id as product_id')
+        return $this->select('*, products.name as product_name, order.id as orderId, users.name as nameUser, order.status as orderStatus, options.id as option_id, products.id as product_id, order.slug as order_slug')
                     ->join('orderdetail', 'order.id = orderdetail.order_id')
                     ->join('products', 'orderdetail.product_id = products.id')
                     ->join('category', 'products.category_id = category.id')
@@ -89,7 +89,7 @@ class Order extends Model
                     ->getResult();
     }
 
-    public function getOrderDetailById($slug)
+    public function getOrderDetailBySlug($slug)
     {
         return $this->select('*, products.name as product_name')
                     ->join('orderdetail', 'order.id = orderdetail.order_id')

@@ -42,7 +42,8 @@ class InventoryModel extends Model
 
     public function getAll()
     {
-        return $this->join('products', 'products.id = inventory.product_id')
+        return $this->select('*, inventory.id as inventory_id')
+                    ->join('products', 'products.id = inventory.product_id')
                     ->join('options', 'options.id = inventory.option_id')
                     ->get()
                     ->getResult();
