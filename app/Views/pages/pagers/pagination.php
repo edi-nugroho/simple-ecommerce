@@ -1,5 +1,7 @@
 <?php $pager->setSurroundCount(2) ?>
 
+
+<?php if($pager->getPageCount() > 1) : ?>
 <nav aria-label="Page navigation example">
     <ul class="pagination">
     <?php if ($pager->hasPrevious()) : ?>
@@ -37,3 +39,4 @@
     <?php endif ?>
     </ul>
 </nav>
+<?php endif; ?>
