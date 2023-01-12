@@ -592,3 +592,14 @@ footer > p {
 .w-85 {
 	width: 85%;
 }
+
+/* Pagination Style */
+.pagination .page-item .page-link{
+	color: #1E1E1E;
+}
+
+.pagination .page-item.active .page-link{
+	background: #1E1E1E;
+	color: white;
+	border-color: #1E1E1E;
+}

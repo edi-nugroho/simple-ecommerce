@@ -41,7 +41,7 @@
 					<label for="" class="mb-2">Size : </label>
 					
 					<?php foreach ($options as $option) : ?>
-						<input type="radio" class="btn-check my-3" name="option_id" id="option<?= $option->id; ?>" value="<?= $option->id; ?>" autocomplete="off">
+						<input type="radio" class="btn-check my-3" name="option_id" id="option<?= $option->id; ?>" value="<?= $option->id; ?>" autocomplete="off" <?= ($option->id[0] ? 'checked' : ''); ?>>
 						<label class="btn" for="option<?= $option->id; ?>"><?= $option->option; ?></label>
 					<?php endforeach; ?>
 				</div>
@@ -72,10 +72,10 @@
 					let productId = $('input[name=product_id]').val();
 	
 					$.ajax({
-						url: 'http://localhost:8080/products/checkstock/' + productId + '/' + optionId, // alamat URL untuk mengecek stok
-						type: 'GET', // metode request yang akan digunakan (GET atau POST)
-						dataType: 'json', // tipe data yang diharapkan sebagai respon dari server
-						success: function(result) { // jika request berhasil, maka akan memanggil fungsi ini
+						url: 'http://localhost:8080/products/checkstock/' + productId + '/' + optionId,
+						type: 'GET', 
+						dataType: 'json', 
+						success: function(result) { 
 							if (result.stock > 0) {
 								// sembunyikan pesan bahwa stok habis
 								$('#buttonCart').html('Add to cart');

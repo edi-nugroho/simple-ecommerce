@@ -43,9 +43,7 @@ class Product extends Model
     public function getProducts()
     {
         return $this->select('*, products.id as p_id, products.name as p_name')
-                    ->join('category', 'category.id = products.category_id')
-                    ->get()
-                    ->getResult();
+                    ->join('category', 'category.id = products.category_id');
     }
 
     public function findByProductsId($id)
@@ -78,9 +76,7 @@ class Product extends Model
         return $this->select('*, products.name as p_name')
                     ->join('category', 'category.id = products.category_id')
                     ->like('name', $keyword)
-                    ->orLike('category_name', $keyword)
-                    ->get()
-                    ->getResult();
+                    ->orLike('category_name', $keyword);
     }
 
     public function getDiscount($id)

@@ -12,7 +12,7 @@
                     <p class="fs-5 fw-bold"><?= $ordr->product_name; ?></p>
                     <p class="text-muted fw-semibold"><?= $ordr->category_name; ?></p>
                     <p class="fw-bold"><?= $ordr->option; ?></p>
-                    <p class="fw-bold">Rp. <?= rupiah($ordr->price); ?></p>
+                    <p class="fw-bold">Rp. <?= rupiah($ordr->price * $ordr->qty); ?></p>
                     <p class="fw-bold">Payment : <?= $ordr->payment; ?></p>
                 </div>
                 <div class="d-flex justify-content-center align-items-center fw-bold px-4">

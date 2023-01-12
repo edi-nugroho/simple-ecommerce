@@ -76,10 +76,10 @@ $routes->post('/categories/insert', 'categories::insert', ['filter' => 'role:adm
 $routes->delete('/categories/delete/(:num)', 'categories::delete/$1', ['filter' => 'role:admin,staff']);
 
 // Profile
-$routes->get('/profile', 'Pages::myprofile', ['filter' => 'role:admin,staff']);
-$routes->get('/updateProfile/(:any)', 'Pages::updateProfile/$1', ['filter' => 'role:admin,staff']);
+$routes->get('/profile', 'Pages::myprofile', ['filter' => 'role:admin,staff,user']);
+$routes->get('/updateProfile/(:any)', 'Pages::updateProfile/$1', ['filter' => 'role:admin,staff,user']);
 $routes->get('/changePassword', 'Pages::changePassword', ['filter' => 'role:admin,staff']);
-$routes->post('/user/updateProfile/(:num)', 'Profile::updateProfile/$1', ['filter' => 'role:admin,staff']);
+$routes->post('/user/updateProfile/(:num)', 'Profile::updateProfile/$1', ['filter' => 'role:admin,staff,user']);
 
 // Forgot Password
 $routes->get('/forgot', 'Profile::forgotPassword');
@@ -88,15 +88,15 @@ $routes->get('/forgot', 'Profile::forgotPassword');
 $routes->get('/reset-password', 'Profile::resetPassword');
 
 // Change Password
-$routes->post('/changePassword', 'Profile::changePassword', ['filter' => 'role:admin,staff']);
+$routes->post('/changePassword', 'Profile::changePassword', ['filter' => 'role:admin,staff,user']);
 
 // Order
-$routes->get('/orders', 'OrderController::index', ['filter' => 'role:admin,staff']);
-$routes->get('/orderDetail/(:any)', 'OrderController::orderDetail/$1', ['filter' => 'role:admin,staff']);
-$routes->get('/orders/delete/(:num)', 'OrderController::delete/$1', ['filter' => 'role:admin,staff']);
-$routes->get('/history/(:any)', 'OrderController::history/$1', ['filter' => 'role:admin,staff']);
-$routes->get('/historyDetail/(:any)', 'OrderController::historyDetail/$1', ['filter' => 'role:admin,staff']);
-$routes->post('/order/updateStatus/(:num)', 'OrderController::updateStatus/$1', ['filter' => 'role:admin,staff']);
+$routes->get('/orders', 'OrderController::index', ['filter' => 'role:admin,staff,user']);
+$routes->get('/orderDetail/(:any)', 'OrderController::orderDetail/$1', ['filter' => 'role:admin,staff,user']);
+$routes->get('/orders/delete/(:num)', 'OrderController::delete/$1', ['filter' => 'role:admin,staff,user']);
+$routes->get('/history/(:any)', 'OrderController::history/$1', ['filter' => 'role:admin,staff,user']);
+$routes->get('/historyDetail/(:any)', 'OrderController::historyDetail/$1', ['filter' => 'role:admin,staff,user']);
+$routes->post('/order/updateStatus/(:num)', 'OrderController::updateStatus/$1', ['filter' => 'role:admin,staff,user']);
 
 // Order List
 $routes->get('/orderLists', 'OrderAdminController::index', ['filter' => 'role:admin,staff']);

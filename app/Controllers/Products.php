@@ -25,7 +25,7 @@ class Products extends BaseController {
     {
         $data = [
             'title' => 'Products List | Eazy Store',
-            'products' => $this->product->getProducts(),
+            'products' => $this->product->getProducts()->get()->getResult(),
             'user'  => $this->user->getUserById(user_id()),
             'request' => \Config\Services::request(),
             'validation' => \Config\Services::validation(),

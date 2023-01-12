@@ -45,7 +45,8 @@ class Pages extends BaseController
     {
         $data = [
             'title' => 'All products - Eazy Store',
-            'products' => $this->productModel->getProducts()
+            'products' => $this->productModel->getProducts()->paginate(1, 'products'),
+            'pager' => $this->productModel->getProducts()->pager
         ];
 
         return view('pages/products', $data);
@@ -83,7 +84,9 @@ class Pages extends BaseController
 
         $data = [
             'title' => $title,
-            'products' => $this->productModel->getProductByKeyword($keyword)
+            'products' => $this->productModel->getProductByKeyword($keyword)->paginate(1, 'products'),
+            'pager' => $this->productModel->getProducts()->pager,
+            'keyword' => $keyword
         ];
 
         return view('pages/products', $data);

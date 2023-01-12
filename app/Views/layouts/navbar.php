@@ -18,14 +18,14 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/allproducts">All Products</a></li>
-            <li><a class="dropdown-item" href="#">Tshirt</a></li>
-            <li><a class="dropdown-item" href="#">Pants</a></li>
-            <li><a class="dropdown-item" href="#">Jacket</a></li>
+            <li><a class="dropdown-item" href="/search?q=tshirt">Tshirt</a></li>
+            <li><a class="dropdown-item" href="/search?q=pants">Pants</a></li>
+            <li><a class="dropdown-item" href="/search?q=jacket">Jacket</a></li>
           </ul>
         </li>
       </ul>
       <form action="/search" class="d-flex" role="search" method="GET">
-        <input class="search-input me-2" name="q" type="text" placeholder="Search" value="<?= old('q'); ?>">
+        <input class="search-input me-2" name="q" type="text" placeholder="Search" value="<?= (isset($keyword)) ? $keyword : ''; ?>">
         <button class="btn" type="submit">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>

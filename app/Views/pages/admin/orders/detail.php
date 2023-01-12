@@ -12,7 +12,7 @@
                     <p class="text-black fw-bolder"><?= $ordr->product_name; ?></p>
                     <p class="text-muted"><?= $ordr->category_name; ?></p>
                     <p class="text-black fs-6 fw-semibold"><?= $ordr->option; ?></p>
-                    <p class="text-black fs-6 fw-semibold">Rp. <?= rupiah($ordr->price); ?></p>
+                    <p class="text-black fs-6 fw-semibold">Rp. <?= rupiah($ordr->price * $ordr->qty); ?></p>
                     <p class="text-black fs-6 fw-semibold">Payment : <?= $ordr->payment; ?></p>
                 </div>
                 <div class="d-flex justify-content-center align-items-center px-4">
