@@ -4,7 +4,7 @@ namespace App\Controllers;
 use App\Models\Category;
 use App\Models\Users;
 
-class Categories extends BaseController {
+class CategoryAdminController extends BaseController {
 
     protected $category;
     protected $user;

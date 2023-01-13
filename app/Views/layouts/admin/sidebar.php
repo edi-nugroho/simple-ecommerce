@@ -11,7 +11,7 @@
 
         <p>Dashboard</p>
         <li>
-            <a href="/admin" class="<?= ($request->uri->getSegment(1) === 'admin') ? 'active' : ''; ?>">Dashboard</a>
+            <a href="/dashboard" class="<?= ($request->uri->getSegment(1) === 'dashboard') ? 'active' : ''; ?>">Dashboard</a>
         </li>
 
         <?php if(in_groups('admin')) : ?>

@@ -6,7 +6,7 @@ use App\Models\CartModel;
 use App\Models\Order;
 use App\Models\OrderDetail;
 
-class Checkout extends BaseController {
+class CheckoutController extends BaseController {
 
     protected $cartModel;
     protected $orderModel;

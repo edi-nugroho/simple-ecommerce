@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Models\Users;
 use Myth\Auth\Password;
 
-class Profile extends BaseController {
+class ProfileController extends BaseController {
     protected $users;
 
     public function __construct()

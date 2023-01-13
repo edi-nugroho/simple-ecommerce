@@ -48,7 +48,7 @@
             <i class="fa-solid fa-user"></i>
           </a>
         <?php if(in_groups('admin') || in_groups('staff')) : ?> 
-          <a href="/admin" class="mx-3 p-2 bg-black text-white text-decoration-none" style="font-size: 12px;">
+          <a href="/dashboard" class="mx-3 p-2 bg-black text-white text-decoration-none" style="font-size: 12px;">
             Admin Panel
           </a>
         <?php endif; ?>

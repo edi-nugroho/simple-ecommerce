@@ -6,7 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\Users;
 use App\Models\Options;
 
-class OptionsAdminController extends BaseController
+class OptionAdminController extends BaseController
 {
     protected $user;
     protected $options;

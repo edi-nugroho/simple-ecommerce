@@ -4,7 +4,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\CartModel;
 
-class Cart extends BaseController {
+class CartController extends BaseController {
     protected $cartModel;
 
     public function __construct()

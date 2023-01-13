@@ -7,7 +7,7 @@ use App\Models\Category;
 use App\Models\Users;
 use App\Models\InventoryModel;
 
-class Products extends BaseController {
+class ProductAdminController extends BaseController {
     protected $product;
     protected $category;
     protected $user;

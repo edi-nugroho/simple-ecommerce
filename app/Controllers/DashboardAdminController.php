@@ -3,7 +3,7 @@
 namespace App\Controllers;
 use App\Models\Users;
 
-class Admin extends BaseController {
+class DashboardAdminController extends BaseController {
     protected $user;
 
     public function __construct()

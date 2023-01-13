@@ -21,7 +21,7 @@
                             <button 
                                 type="submit"
                                 name="update"
-                                class="remove__button">Update</button>
+                                class="remove__button">Update Qty</button>
                         </div>
                     </div>
                     <div class="cart-qty__price">
@@ -30,6 +30,7 @@
                             <input type="number" 
                                    name="qty" 
                                    class="qty__cart" 
+                                   min="1"
                                    value="<?= $c->qty; ?>">
                         </div>
 

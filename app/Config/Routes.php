@@ -42,53 +42,52 @@ $routes->get('/about', 'Pages::about');
 $routes->get('/search', 'Pages::search');
 
 // Cart
-$routes->get('/cart', 'Cart::index/$1');
-$routes->post('/cart/insert', 'Cart::insert', ['filter' => 'role:admin,staff,user']);
-$routes->post('/cart/update/(:num)', 'Cart::update/$1', ['filter' => 'role:admin,staff,user']);
-$routes->get('/cart/delete/(:num)', 'Cart::delete/$1', ['filter' => 'role:admin,staff,user']);
+$routes->get('/cart', 'CartController::index/$1');
+$routes->post('/cart/insert', 'CartController::insert', ['filter' => 'role:admin,staff,user']);
+$routes->post('/cart/update/(:num)', 'CartController::update/$1', ['filter' => 'role:admin,staff,user']);
+$routes->get('/cart/delete/(:num)', 'CartController::delete/$1', ['filter' => 'role:admin,staff,user']);
 
 // Checkout
-$routes->get('/checkout', 'Checkout::index', ['filter' => 'role:admin,staff,user']);
-$routes->post('/checkout/insert', 'Checkout::insert', ['filter' => 'role:admin,staff,user']);
+$routes->get('/checkout', 'CheckoutController::index', ['filter' => 'role:admin,staff,user']);
+$routes->post('/checkout/insert', 'CheckoutController::insert', ['filter' => 'role:admin,staff,user']);
 
 // Auth
-$routes->get('/login', 'Auth::login');
-$routes->get('/register', 'Auth::register');
+$routes->get('/login', 'AuthController::login');
+$routes->get('/register', 'AuthController::register');
 
-// Admin Routes
-$routes->get('/admin', 'Admin::index', ['filter' => 'role:admin,staff']);
-$routes->get('/admin/index', 'Admin::index', ['filter' => 'role:admin,staff']);
+// Dashboard Routes
+$routes->get('/dashboard', 'DashboardAdminController::index', ['filter' => 'role:admin,staff']);
 
 // Products Routes
-$routes->get('/products', 'products::index', ['filter' => 'role:admin,staff']);
-$routes->get('/products/index', 'products::index', ['filter' => 'role:admin,staff']);
-$routes->get('/products/insert', 'products::insert', ['filter' => 'role:admin,staff']);
-$routes->post('/products/save', 'products::save', ['filter' => 'role:admin,staff']);
-$routes->get('/products/edit/(:any)', 'products::edit/$1', ['filter' => 'role:admin,staff']);
-$routes->post('/products/update/(:num)', 'products::update/$1', ['filter' => 'role:admin,staff']);
-$routes->delete('/products/delete/(:num)', 'products::delete/$1', ['filter' => 'role:admin,staff']);
-$routes->get('/products/checkstock/(:num)/(:num)', 'products::checkStock/$1/$2');
+$routes->get('/products', 'ProductAdminController::index', ['filter' => 'role:admin,staff']);
+$routes->get('/products/index', 'ProductAdminController::index', ['filter' => 'role:admin,staff']);
+$routes->get('/products/insert', 'ProductAdminController::insert', ['filter' => 'role:admin,staff']);
+$routes->post('/products/save', 'ProductAdminController::save', ['filter' => 'role:admin,staff']);
+$routes->get('/products/edit/(:any)', 'ProductAdminController::edit/$1', ['filter' => 'role:admin,staff']);
+$routes->post('/products/update/(:num)', 'ProductAdminController::update/$1', ['filter' => 'role:admin,staff']);
+$routes->delete('/products/delete/(:num)', 'ProductAdminController::delete/$1', ['filter' => 'role:admin,staff']);
+$routes->get('/products/checkstock/(:num)/(:num)', 'ProductAdminController::checkStock/$1/$2');
 
 // Categories Routes
-$routes->get('/categories', 'categories::index', ['filter' => 'role:admin,staff']);
-$routes->get('/categories/index', 'categories::index', ['filter' => 'role:admin,staff']);
-$routes->post('/categories/insert', 'categories::insert', ['filter' => 'role:admin,staff']);
-$routes->delete('/categories/delete/(:num)', 'categories::delete/$1', ['filter' => 'role:admin,staff']);
+$routes->get('/categories', 'CategoryAdminController::index', ['filter' => 'role:admin,staff']);
+$routes->get('/categories/index', 'CategoryAdminController::index', ['filter' => 'role:admin,staff']);
+$routes->post('/categories/insert', 'CategoryAdminController::insert', ['filter' => 'role:admin,staff']);
+$routes->delete('/categories/delete/(:num)', 'CategoryAdminController::delete/$1', ['filter' => 'role:admin,staff']);
 
 // Profile
 $routes->get('/profile', 'Pages::myprofile', ['filter' => 'role:admin,staff,user']);
 $routes->get('/updateProfile/(:any)', 'Pages::updateProfile/$1', ['filter' => 'role:admin,staff,user']);
 $routes->get('/changePassword', 'Pages::changePassword', ['filter' => 'role:admin,staff']);
-$routes->post('/user/updateProfile/(:num)', 'Profile::updateProfile/$1', ['filter' => 'role:admin,staff,user']);
+$routes->post('/user/updateProfile/(:num)', 'ProfileController::updateProfile/$1', ['filter' => 'role:admin,staff,user']);
 
 // Forgot Password
-$routes->get('/forgot', 'Profile::forgotPassword');
+$routes->get('/forgot', 'ProfileController::forgotPassword');
 
 // Reset Password
-$routes->get('/reset-password', 'Profile::resetPassword');
+$routes->get('/reset-password', 'ProfileController::resetPassword');
 
 // Change Password
-$routes->post('/changePassword', 'Profile::changePassword', ['filter' => 'role:admin,staff,user']);
+$routes->post('/changePassword', 'ProfileController::changePassword', ['filter' => 'role:admin,staff,user']);
 
 // Order
 $routes->get('/orders', 'OrderController::index', ['filter' => 'role:admin,staff,user']);
@@ -104,9 +103,9 @@ $routes->get('/orderLists/detail/(:any)', 'OrderAdminController::detail/$1', ['f
 $routes->post('/orderList/updateStatus/(:num)', 'OrderAdminController::updateStatus/$1', ['filter' => 'role:admin,staff']);
 
 // Option
-$routes->get('/options', 'OptionsAdminController::index', ['filter' => 'role:admin,staff']);
-$routes->post('/options/insert', 'OptionsAdminController::insert', ['filter' => 'role:admin,staff']);
-$routes->delete('/options/delete/(:num)', 'OptionsAdminController::delete/$1', ['filter' => 'role:admin,staff']);
+$routes->get('/options', 'OptionAdminController::index', ['filter' => 'role:admin,staff']);
+$routes->post('/options/insert', 'OptionAdminController::insert', ['filter' => 'role:admin,staff']);
+$routes->delete('/options/delete/(:num)', 'OptionAdminController::delete/$1', ['filter' => 'role:admin,staff']);
 
 // Inventory
 $routes->get('/inventory', 'InventoryAdminController::index', ['filter' => 'role:admin,staff']);
