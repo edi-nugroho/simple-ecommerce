@@ -26,19 +26,22 @@ Ini adalah project kedua yang saya buat setelah inventory-app :smile:. Project i
    
 <h4>List user untuk login : </h4>
 
-Email = admin@gmail.com  Name = Administrator
-   Username = admin
-   Role : Admin
-   Password = eazystore123
+1. User 1
+- Email = admin@gmail.com  Name = Administrator
+- Username = admin
+- Role : Admin
+- Password = eazystore123
 
-Email = staff@gmail.com
-Name = Staff Admin
-Username = staff
-Role : Staff
-Password = passwordstaff123
+2. User 2
+- Email = staff@gmail.com
+- Name = Staff Admin
+- Username = staff
+- Role : Staff
+- Password = passwordstaff123
 
-Email = user@gmail.com
-Name = User
-Username = user
-Role : User
-Password = eazystore12345
+3. User 3
+- Email = user@gmail.com
+- Name = User
+- Username = user
+- Role : User
+- Password = eazystore12345
