@@ -40,7 +40,7 @@ class Users extends Model
         return $this->select('*, users.name as user_name, users.id as userId')
                     ->join('auth_groups_users', 'users.id = auth_groups_users.user_id')
                     ->join('auth_groups', 'auth_groups.id = auth_groups_users.group_id')
-                    ->where('group_id', 3)
+                    ->where('auth_groups.name', 'staff')
                     ->get()
                     ->getResult();
     }

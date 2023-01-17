@@ -63,6 +63,7 @@ class Pages extends BaseController
             'title' => $title,
             'product' => $product,
             'options' => $this->inventoryModel->getOptions($product->p_id),
+            'validation' => \Config\Services::validation(),
             'beforeDiscount' => $beforeDiscount
         ];
 

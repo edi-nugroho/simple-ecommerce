@@ -40,6 +40,23 @@ class CartController extends BaseController {
         // Total Process
         $price = $this->request->getVar('price');
         $total = $qty * $price;
+
+        // Validasi Input
+		if(!$this->validate([
+            'option_id' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => 'The size is required',
+                    'numeric' => 'The size is required'
+                ]
+            ],
+			'qty' => 'required|numeric'
+		])){
+            // Slug
+            $slug = $this->request->getVar('slug');
+
+			return redirect()->to('/product/' . $slug)->withInput();
+		}
         
         $this->cartModel->save([
             'user_id' => $user_id,

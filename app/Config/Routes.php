@@ -77,7 +77,7 @@ $routes->delete('/categories/delete/(:num)', 'CategoryAdminController::delete/$1
 // Profile
 $routes->get('/profile', 'Pages::myprofile', ['filter' => 'role:admin,staff,user']);
 $routes->get('/updateProfile/(:any)', 'Pages::updateProfile/$1', ['filter' => 'role:admin,staff,user']);
-$routes->get('/changePassword', 'Pages::changePassword', ['filter' => 'role:admin,staff']);
+$routes->get('/changePassword', 'Pages::changePassword', ['filter' => 'role:admin,staff,user']);
 $routes->post('/user/updateProfile/(:num)', 'ProfileController::updateProfile/$1', ['filter' => 'role:admin,staff,user']);
 
 // Forgot Password

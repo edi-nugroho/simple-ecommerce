@@ -98,7 +98,7 @@ body > .navbar {
 	padding: 50px;
 }
 
-.categories > .container > div {
+.categories > .container > a > div {
 	width: 300px;
 	height: 350px;
 	background-color: black;

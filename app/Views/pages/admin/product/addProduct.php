@@ -42,7 +42,7 @@
             </div>
             <div class="mb-3" id="discount">
                 <label for="discountPercent" class="form-label">Discount</label>
-                <input type="text" name="discount" class="form-control" id="discountPercent" value="<?= old('discount'); ?>">
+                <input type="text" name="discount" class="form-control" id="discountPercent" value="<?= old('discount'); ?>" placeholder="Example 25%">
             </div>
 
             <!-- Create the editor container -->

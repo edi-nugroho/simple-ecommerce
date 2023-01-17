@@ -35,18 +35,6 @@
 		      	</div>
             </div>
             <div class="mb-3">
-                <label class="form-label">Role</label>
-                <select class="form-select <?= ($validation->hasError('group_id')) ? "is-invalid" : ''; ?>" name="group_id">
-                    <option>Choose Role</option>
-                    <?php foreach($roles as $role) : ?>
-                        <option value="<?= $role['id']; ?>" <?= (old('role_id') == $role['id']) ? 'selected' : '' ?>><?= $role['description'] ?></option>
-                    <?php endforeach ?>        
-                </select>
-                <div class="invalid-feedback">
-		        	<?= $validation->getError('group_id'); ?>
-		      	</div>
-            </div>
-            <div class="mb-3">
                 <label class="form-label">Password</label>
                 <input type="password" class="form-control <?= ($validation->hasError('password')) ? "is-invalid" : ''; ?>" name="password" value="<?= old('password'); ?>">
                 <div class="invalid-feedback">

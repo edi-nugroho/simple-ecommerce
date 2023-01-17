@@ -9,6 +9,7 @@
 				<input type="hidden" name="user_id" value="<?= user_id(); ?>">
 				<input type="hidden" name="product_id" value="<?= $product->p_id; ?>">
 				<input type="hidden" name="price" value="<?= $product->price; ?>">
+				<input type="hidden" name="slug" value="<?= $product->slug; ?>">
 			</div>
 			<div class="product-image">
 				<!-- Single Image -->
@@ -37,23 +38,32 @@
 					<?= $product->description; ?>
 				</div>
 
-				<div class="detail-size mb-4">
-					<label for="" class="mb-2">Size : </label>
+				<?php if($options) : ?>
+					<div class="detail-size mb-4">
+						<?php if($validation->hasError('option_id')) : ?>
+							<p class="text-danger"><?= $validation->getError('option_id'); ?></p>
+						<?php endif; ?>
+						<label for="" class="mb-2">Size : </label>
+						
+						<?php foreach ($options as $option) : ?>
+							<input type="radio" class="btn-check my-3" name="option_id" id="option<?= $option->id; ?>" value="<?= $option->id; ?>" autocomplete="off" <?= ($option->id[0] ? 'checked' : ''); ?>>
+							<label class="btn" for="option<?= $option->id; ?>"><?= $option->option; ?></label>
+						<?php endforeach; ?>
+					</div>
 					
-					<?php foreach ($options as $option) : ?>
-						<input type="radio" class="btn-check my-3" name="option_id" id="option<?= $option->id; ?>" value="<?= $option->id; ?>" autocomplete="off" <?= ($option->id[0] ? 'checked' : ''); ?>>
-						<label class="btn" for="option<?= $option->id; ?>"><?= $option->option; ?></label>
-					<?php endforeach; ?>
-				</div>
+					<div class="detail-qty pb-3" id="qtyCart">
+						<label>Qty : </label>
+						<input type="number" name="qty" class="qty-input" min="1" value="1">
+					</div>
+					
+					<div class="detail-button">
+						<button type="submit" id="buttonCart" class="primary fw-bolder">Add to cart</button>
+					</div>
+				<?php endif; ?>
 
-				<div class="detail-qty pb-3" id="qtyCart">
-					<label>Qty : </label>
-					<input type="number" name="qty" class="qty-input" min="1" value="1">
-				</div>
-
-				<div class="detail-button">
-					<button type="submit" id="buttonCart" class="primary fw-bolder">Add to cart</button>
-				</div>
+				<?php if($options == NULL) : ?>
+					<p class="primary fw-bolder text-center py-3">Stock has not been added</p>
+				<?php endif; ?>
 			</div>
 		</form>
 		</div>

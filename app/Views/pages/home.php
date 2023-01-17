@@ -65,15 +65,23 @@
 
 	<section class="categories">
 		<div class="container d-flex justify-content-between">
-			<div class="jacket">
-				<h1>JACKET</h1>
-			</div>
-			<div class="pants">
-				<h1>PANTS</h1>
-			</div>
-			<div class="tshirt">
-				<h1>T'SHIRT</h1>
-			</div>
+			<a href="/search?q=jacket" class="text-decoration-none">
+				<div class="jacket">
+					<h1>JACKET</h1>
+				</div>
+			</a>
+
+			<a href="/search?q=pants" class="text-decoration-none">
+				<div class="pants">
+					<h1>PANTS</h1>
+				</div>
+			</a>
+
+			<a href="/search?q=tshirt" class="text-decoration-none">
+				<div class="tshirt">
+					<h1>T'SHIRT</h1>
+				</div>
+			</a>
 		</div>
 	</section>
 <?= $this->endSection(); ?>

@@ -13,7 +13,7 @@
 									<h6><?= $p['discount']; ?>%</h6>
 								</div>
 							<?php endif; ?>
-							<!-- Image Sementara -->
+							<!-- Image -->
 							<div class="image-card">
 								<a href="/product/<?= $p['slug']; ?>" class="text-decoration-none"><img src="/uploads/<?= $p['image'] ?>" alt="" width="300"></a>
 							</div>

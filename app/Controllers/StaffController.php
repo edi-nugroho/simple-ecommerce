@@ -62,12 +62,6 @@ class StaffController extends BaseController {
 			'username' => 'required|is_unique[users.username]',
 			'email' => 'required|is_unique[users.email]',
 			'phone_number' => 'required|numeric',
-            'group_id' => [
-                'rules' => 'required|numeric',
-                'errors' => [
-                    'numeric' => 'The category field is required'
-                ]
-            ],
             'password' => 'required|is_unique[users.password_hash]'
 		])){
 			return redirect()->to('/staff/insert')->withInput();
@@ -88,7 +82,7 @@ class StaffController extends BaseController {
         $user_id = $this->user->getInsertID();
 
         $this->auth_groups_users->save([
-            'group_id' => 3,
+            'group_id' => 2,
             'user_id' => $user_id
         ]);
 
