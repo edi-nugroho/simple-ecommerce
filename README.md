@@ -13,3 +13,12 @@ Ini adalah project kedua yang saya buat setelah inventory-app :smile:. Project i
    ```javascript
     ;extension=intl
    ```
+   Kemudian hapus tanda titik koma nya (;), sehingga seperti berikut : 
+   ```javascript
+    extension=intl
+   ```
+   Baru kemudian jalankan XAMPP nya
+7. Setelah itu project nya baru bisa di run, dengan mengetikkan perintah berikut pada git bash, cmd :
+   ```javascript
+    php spark serve
+   ```
