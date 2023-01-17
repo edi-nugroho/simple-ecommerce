@@ -26,11 +26,11 @@ Ini adalah project kedua yang saya buat setelah inventory-app :smile:. Project i
    
 <h4>List user untuk login : </h4>
 
-Email = admin@gmail.com
-Name = Administrator
-Username = admin
-Role : Admin
-Password = eazystore123
+1. Email = admin@gmail.com
+   Name = Administrator
+   Username = admin
+   Role : Admin
+   Password = eazystore123
 
 Email = staff@gmail.com
 Name = Staff Admin
