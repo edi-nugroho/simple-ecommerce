@@ -17,8 +17,10 @@ Ini adalah project kedua yang saya buat setelah inventory-app :smile:. Project i
    ```javascript
     extension=intl
    ```
-   Baru kemudian jalankan XAMPP nya
-7. Setelah itu project nya baru bisa di run, dengan mengetikkan perintah berikut pada git bash, cmd :
+   Baru kemudian jalankan XAMPP nya.
+   (Konfigurasi tersebut dilakukan ketika project tersebut tidak bisa di run, tetapi jika kalian run project nya tidak error maka tidak harus melakukan konfigurasi tersebut :no_mouth:)
+   
+7. Setelah itu project nya baru bisa di run, dengan mengetikkan perintah berikut pada git bash atau cmd :
    ```javascript
     php spark serve
    ```
