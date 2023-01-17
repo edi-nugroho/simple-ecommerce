@@ -1,6 +1,6 @@
 # Ecommerce (Codeigniter 4)
 
-Ini adalah project kedua yang saya buat setelah inventory-app :smile:. Project ini dibuat untuk mengasah skill yang sudah saya punya yakni bahasa pemrograman PHP. Project ini masih jauh dari kata sempurna, dikarenakan saya juga masih baru belajar pemrograman :sweat_smile:
+Ini adalah project kedua yang saya buat setelah inventory-app :smile:. Project ini dibuat untuk mengasah skill yang sudah saya punya yakni bahasa pemrograman PHP. Project ini masih jauh dari kata sempurna, dikarenakan saya juga masih baru belajar pemrograman. Dan itu alasannya saya beri nama project ini simple-ecommerce karena project ini memang simple :sweat_smile:
 
 <h4>Berikut cara configurasi projectnya : </h4>
 
