@@ -29,7 +29,8 @@ Ini adalah project kedua yang saya buat setelah inventory-app :smile:. Project i
 <h4>List user untuk login : </h4>
 
 1. User 1
-- Email = admin@gmail.com  Name = Administrator
+- Email = admin@gmail.com  
+- Name = Administrator
 - Username = admin
 - Role : Admin
 - Password = eazystore123
