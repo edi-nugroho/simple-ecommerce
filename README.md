@@ -5,7 +5,7 @@ Ini adalah project kedua yang saya buat setelah inventory-app :smile:. Project i
 <h4>Berikut cara configurasi projectnya : </h4>
 
 1. Pastikan kalian mempunyai XAMPP.
-2. Setelah clone atau sudah mendownload source code nya, kalian bisa file projectnya dimana saja.
+2. Setelah clone atau sudah mendownload source code nya, kalian bisa letakkan file projectnya dimana saja.
 3. Lalu buat databasenya dengan nama ecommerce_ci4
 4. Lalu import table-table nya dari file ecommerce_ci4.sql yang ada di dalam folder projectnya.
 5. Sebelum projectnya di run, harus ada configurasi pada XAMPP nya. Kalian bisa ke folder XAMPP(Tergantung install xampp nya dimana) yang ada di directory C:. Lalu ke folder php, kemudian cari file php.ini lalu buka file tersebut menggunakan Notepad. 
