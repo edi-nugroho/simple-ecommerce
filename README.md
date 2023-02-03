@@ -20,7 +20,7 @@ Ini adalah project kedua yang saya buat setelah inventory-app :smile:. Project i
    Baru kemudian jalankan XAMPP nya.
    (Konfigurasi tersebut dilakukan ketika project tersebut tidak bisa di run, tetapi jika kalian run project nya tidak ada error maka konfigurasi tersebut tidak harus dilakukan :no_mouth:)
 
-7.  Setelah itu jalankan perintah composer install, dengan mengetikkan perintah berikut pada git bash atau cmd :
+7. Setelah itu jalankan perintah composer install, dengan mengetikkan perintah berikut pada git bash atau cmd :
    ```
     composer install
    ```
