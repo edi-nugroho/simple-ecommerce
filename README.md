@@ -10,11 +10,11 @@ Ini adalah project kedua yang saya buat setelah inventory-app :smile:. Project i
 4. Lalu import table-table nya dari file ecommerce_ci4.sql yang ada di dalam folder projectnya.
 5. Sebelum projectnya di run, harus ada configurasi pada XAMPP nya. Kalian bisa ke folder XAMPP(Tergantung install xampp nya dimana) yang ada di directory C:. Lalu ke folder php, kemudian cari file php.ini lalu buka file tersebut menggunakan Notepad. 
 6. Lalu cari menggunakan Ctrl + F, lalu cari kata berikut : 
-   ```javascript
+   ```
     ;extension=intl
    ```
    Kemudian hapus tanda titik koma nya (;), sehingga seperti berikut : 
-   ```javascript
+   ```
     extension=intl
    ```
    Baru kemudian jalankan XAMPP nya.
