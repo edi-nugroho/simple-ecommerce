@@ -1,63 +1,50 @@
-# CodeIgniter 4 Application Starter
+# Ecommerce (Codeigniter 4)
 
-## What is CodeIgniter?
+Ini adalah project kedua yang saya buat setelah inventory-app :smile:. Project ini dibuat untuk mengasah skill yang sudah saya punya yakni bahasa pemrograman PHP. Project ini masih jauh dari kata sempurna, dikarenakan saya juga masih baru belajar pemrograman. Dan itu alasannya saya beri nama project ini simple-ecommerce karena project ini memang simple :sweat_smile:
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](http://codeigniter.com).
+<h4>Berikut cara configurasi projectnya : </h4>
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+1. Pastikan kalian mempunyai XAMPP.
+2. Setelah clone atau sudah mendownload source code nya, kalian bisa letakkan file projectnya dimana saja.
+3. Lalu buat databasenya dengan nama ecommerce_ci4
+4. Lalu import table-table nya dari file ecommerce_ci4.sql yang ada di dalam folder projectnya.
+5. Sebelum projectnya di run, harus ada configurasi pada XAMPP nya. Kalian bisa ke folder XAMPP(Tergantung install xampp nya dimana) yang ada di directory C:. Lalu ke folder php, kemudian cari file php.ini lalu buka file tersebut menggunakan Notepad. 
+6. Lalu cari menggunakan Ctrl + F, lalu cari kata berikut : 
+   ```javascript
+    ;extension=intl
+   ```
+   Kemudian hapus tanda titik koma nya (;), sehingga seperti berikut : 
+   ```javascript
+    extension=intl
+   ```
+   Baru kemudian jalankan XAMPP nya.
+   (Konfigurasi tersebut dilakukan ketika project tersebut tidak bisa di run, tetapi jika kalian run project nya tidak ada error maka konfigurasi tersebut tidak harus dilakukan :no_mouth:)
+   
+7. Setelah itu project nya baru bisa di run, dengan mengetikkan perintah berikut pada git bash atau cmd :
+   ```javascript
+    php spark serve
+   ```
+   
+   
+<h4>List user untuk login : </h4>
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+1. User 1
+- Email = admin@gmail.com  
+- Name = Administrator
+- Username = admin
+- Role : Admin
+- Password = eazystore123
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+2. User 2
+- Email = staff@gmail.com
+- Name = Staff Admin
+- Username = staff
+- Role : Staff
+- Password = passwordstaff123
 
-## Installation & updates
-
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
-
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
-
-## Setup
-
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
-
-## Important Change with index.php
-
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
-
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 7.4 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
-- xml (enabled by default - don't turn it off)
+3. User 3
+- Email = user@gmail.com
+- Name = User
+- Username = user
+- Role : User
+- Password = eazystore12345
